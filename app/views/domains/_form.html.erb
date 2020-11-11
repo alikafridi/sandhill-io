@@ -1,0 +1,131 @@
+<%= form_with(model: domain, local: true) do |form| %>
+  <% if domain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(domain.errors.count, "error") %> prohibited this domain from being saved:</h2>
+
+      <ul>
+      <% domain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :domain %>
+    <%= form.text_field :domain, id: :domain_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :domain_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :domain_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logo %>
+    <%= form.text_field :logo, id: :domain_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_founded %>
+    <%= form.number_field :year_founded, id: :domain_year_founded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headquarters %>
+    <%= form.text_field :headquarters, id: :domain_headquarters %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover_photo %>
+    <%= form.text_field :cover_photo, id: :domain_cover_photo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :countries %>
+    <%= form.text_field :countries, id: :domain_countries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :domain_status %>
+  </div>
+
+
+<div class="row">
+  <div class="col-sm-6">
+  <div class="field">
+    <%= form.label :category_ids %>
+
+    <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>
+     
+    <% end %>
+  </div>
+</div>
+<div class="col-sm-6">
+
+  <div class="field">
+    <%= form.label :location_ids %>
+
+    <%= form.collection_check_boxes :location_ids, @locations.order(:name), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.collection_select :company_id, Company.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.text_field :tag_list, id: :domain_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ancestry %>
+    <%= form.text_field :ancestry, id: :domain_ancestry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comm_platform %>
+    <%= form.text_field :comm_platform, id: :domain_comm_platform %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alexa_rank %>
+    <%= form.number_field :alexa_rank, id: :domain_alexa_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :funds_raised %>
+    <%= form.text_field :funds_raised, id: :domain_funds_raised %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

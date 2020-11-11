@@ -1,0 +1,77 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_domain %>
+    <%= form.text_field :main_domain, id: :company_main_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :founders %>
+    <%= form.text_field :founders, id: :company_founders %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_founded %>
+    <%= form.number_field :year_founded, id: :company_year_founded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :linkedin_url %>
+    <%= form.text_field :linkedin_url, id: :company_linkedin_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headquarters %>
+    <%= form.text_field :headquarters, id: :company_headquarters %>
+  </div>
+
+  <div class="field">
+    <%= form.label :combined_alexa %>
+    <%= form.number_field :combined_alexa, id: :company_combined_alexa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_count %>
+    <%= form.number_field :employee_count, id: :company_employee_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stage %>
+    <%= form.text_field :stage, id: :company_stage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capital_raised %>
+    <%= form.number_field :capital_raised, id: :company_capital_raised %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ancestry %>
+    <%= form.collection_select :ancestry, Company.order(:name) , :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

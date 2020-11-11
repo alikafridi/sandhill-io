@@ -1,0 +1,54 @@
+<section class="row no-gutters p-0 bg-white" id="bg-top">  
+    <div class="row w-100 no-gutters justify-content-center py-4" style="margin-top:75px; margin-bottom:75px;">
+      <div class="col-md-10 col-lg-9 col-xl-8 p-3">
+        <h1 class="display-4 lato">Discover the fastest growing tech companies</h1>
+      </div>
+    </div>
+</section>
+<section class="bg-white">
+<div class="container">
+
+<p><b>Domains Count: <%= @domains.count %> / <%= @count %></b></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Domain</th>
+      <th scope="col">Description</th>
+      
+      <th scope="col">Category</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Alexa rank</th>
+      <th scope="col">Alexa 90 Day Delta</th>
+      <th scope="col">Funds raised</th>
+      <% if user_signed_in? %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= link_to domain.domain, domain %> <%= link_to (fa_icon "external-link"), ('https://' + domain.domain), target: :_blank, rel: 'nofollow' %></td>
+        <td><%= domain.description %></td>
+
+        <td><%= domain.category_ids %></td>
+        <td><%= domain.tag_list %></td>
+        <td><%= domain.alexa_rank %></td>
+        <td><%= domain.alexa_90day_delta %></td>
+        <td><%= domain.funds_raised %></td>
+        <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
+        <td><%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+  <%= will_paginate @domains, previous_label: h("<"), next_label: h(">") %>
+
+
+</div>
+</section>

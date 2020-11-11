@@ -1,0 +1,66 @@
+<%= form_with(model: mobile_app, local: true) do |form| %>
+  <% if mobile_app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mobile_app.errors.count, "error") %> prohibited this mobile_app from being saved:</h2>
+
+      <ul>
+      <% mobile_app.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :mobile_app_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ios_link %>
+    <%= form.text_field :ios_link, id: :mobile_app_ios_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :android_link %>
+    <%= form.text_field :android_link, id: :mobile_app_android_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ios_sensortower %>
+    <%= form.text_field :ios_sensortower_link, id: :mobile_app_ios_sensortower_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :android %>
+    <%= form.text_field :android_sensortower_link, id: :mobile_app_android_sensortower_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.collection_select :company_id, Company.all, :id, :name, include_blank: true %>
+  </div>
+
+<% if !@categories.nil? %>
+    <div class="field">
+    <%= form.label :category_ids %>
+
+    <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>
+     
+    <% end %>
+  </div>
+<% end %>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<section class="bg-white">
+<div class="container">
+<p>
+  <strong>Name:</strong>
+  <%= @mobile_app.name %>
+</p>
+
+<p>
+  <strong>Ios link:</strong>
+  <%= @mobile_app.ios_link %>
+</p>
+
+<p>
+  <strong>Android link:</strong>
+  <%= @mobile_app.android_link %>
+</p>
+
+<p>
+  <strong>Ios SensorTower Link:</strong>
+  <%= link_to @mobile_app.ios_sensortower_link, @mobile_app.ios_sensortower_link %>
+</p>
+
+<p>
+  <strong>Android SensorTower Link:</strong>
+  <%= @mobile_app.android_sensortower_link %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @mobile_app.company_id %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <% @categories.each do |c| %>
+    <%= link_to c.name, c %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_mobile_app_path(@mobile_app) %> |
+<%= link_to 'Back', mobile_apps_path %>
+</div>
+</section>

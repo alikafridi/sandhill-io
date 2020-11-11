@@ -1,0 +1,37 @@
+<div class="container">
+
+<h1><%= @company.name %></h1>
+<p class="lead"><%= @company.linkedin_url %></p>
+
+<p>
+  <strong>Company Id:</strong>
+  <%= @linkedin_count.company_id %>
+</p>
+
+<p>
+  <strong>Employee Count:</strong>
+  <%= @linkedin_count.employee_count %>
+</p>
+
+
+<p>
+  <strong>Domainn:</strong>
+  <%= @linkedin_count.domain %>
+</p>
+
+
+<p>
+  <strong>UID:</strong>
+  <%= @linkedin_count.uid %>
+</p>
+
+
+<p>
+  <strong>Date:</strong>
+  <%= @linkedin_count.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_linkedin_count_path(@linkedin_count) %> |
+<%= link_to 'Back', linkedin_counts_path %>
+</div>

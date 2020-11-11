@@ -1,0 +1,2 @@
+json.extract! daycare, :id, :name, :address, :url, :call_phone, :text_phone, :email, :center_description, :additional_info, :yelp_url, :hours_open, :days_open, :ages, :center_type, :center_tuition, :care_type, :accreditation_type, :religious_affiliations, :languages_spoken, :spots_available, :availability_information, :rating_score, :rating_count, :student_teacher_ratio, :added_tags, :created_at, :updated_at
+json.url daycare_url(daycare, format: :json)

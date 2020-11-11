@@ -1,0 +1,130 @@
+<section class="bg-dark">
+      <div class="container height-lg-10">
+        <div class="row">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <h1 class="display-4 text-white">Domains</h1>
+          </div>
+        </div>
+      </div>
+</section>
+
+<section class="bg-white">
+<div class="row">
+  <div class="col-sm-2 offset-sm-1">
+
+<!-- <div class="container">--> 
+<% if user_signed_in? %>
+  <%= link_to 'New Domain', new_domain_path, class: "btn btn-primary" %>
+<br><br>
+<% end %>
+
+<%= form_tag domains_path, class: "form-inline",  method: :get do %>
+  <%= text_field_tag :q, nil, placeholder: "Search Query", class: "form-control mb-2 mr-sm-2" %>
+  <%= submit_tag "Search", class: "btn btn-dark mb-2" %>
+
+<% end %>
+
+  <h6>Alexa Ranks</h6>
+  <% @domains.aggs["alexa_rank"]["buckets"].sort_by{ |b| b.fetch("from", 0) }.each do |bucket| %>
+      <div>
+        <% if params[:alexa_rank_from] == bucket["from"].to_s && params[:alexa_rank_to] == bucket["to"].to_s %>
+          <strong><%= link_to alexa_rank_range_name(bucket), request.params.except(:alexa_rank) %></strong>
+        <% else %>
+          <%= link_to alexa_rank_range_name(bucket), request.params.merge(alexa_rank_from: bucket["from"], alexa_rank_to: bucket["to"]) %>
+        <% end %>
+        (<%= bucket["doc_count"] %>)
+      </div>
+    <% end %>
+
+    <br>
+    <h6>Alexa Deltas</h6>
+  <% @domains.aggs["alexa_90day_delta"]["buckets"].sort_by{ |b| b.fetch("from", 0) }.reverse.each do |bucket| %>
+      <div>
+        <% if params[:alexa_90day_delta_from] == bucket["from"].to_s && params[:alexa_90day_delta_to] == bucket["to"].to_s %>
+          <strong><%= link_to alexa_rank_range_name(bucket), request.params.except(:alexa_90day_delta) %></strong>
+        <% else %>
+          <%= link_to alexa_rank_range_name(bucket), request.params.merge(alexa_90day_delta_from: bucket["from"], alexa_90day_delta_to: bucket["to"]) %>
+        <% end %>
+        (<%= bucket["doc_count"] %>)
+      </div>
+    <% end %>
+
+
+  </div>
+  <div class="col-sm-8">
+
+<p><b>Domains Count: <%= @domains.count %> / <%= @count %></b></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Domain</th>
+      <!--<th scope="col">Name</th>-->
+      <th scope="col">Description</th>
+<!--      <th scope="col">Logo</th>
+  <th scope="col">Year founded</th> -->
+<!--  <th scope="col">Headquarters</th> --> 
+<!--  <th scope="col">Cover photo</th>
+      <th scope="col">Countries</th>
+      <th scope="col">Status</th>-->
+      <th scope="col">Reach Per Million</th>
+      <th scope="col">Category</th>
+      <!-- <th scope="col">Tags</th>--> 
+      <th scope="col">Employee Count</th>
+<!--  <th scope="col">Ancestry</th>
+      <th scope="col">Comm platform</th> -->
+      <th scope="col">Alexa rank</th>
+      <th scope="col">Alexa Delta (90 day)</th>
+      <th scope="col">Funds raised</th>
+      <% if user_signed_in? %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= link_to domain.domain, domain %> <%= link_to (fa_icon "external-link"), ('https://' + domain.domain), target: :_blank, rel: 'nofollow' %></td>
+        <!--<td><%= domain.name %></td>-->
+        <td><%= domain.description %></td>
+<!--        <td><%= domain.logo %></td>
+    <td><%= domain.year_founded %></td>-->
+<!--        <td><%= domain.headquarters %></td> --> 
+<!--     <td><%= domain.cover_photo %></td>
+        <td><%= domain.countries %></td>
+        <td><%= domain.status %></td> -->
+        <td><%= domain.reach_views_per_million %></td>
+        <td><%= domain.category_ids %></td>
+        <!-- <td><%= domain.tag_list %></td> --> 
+        <td><%= domain.employee_count %></td>
+<!--        <td><%= domain.ancestry %></td>
+        <td><%= domain.comm_platform %></td> -->
+        <td><%= domain.alexa_rank %></td>
+        <td><%= domain.alexa_90day_delta %></td>
+        <td><%= domain.funds_raised %></td>
+        <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
+        <td><%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+  <%= will_paginate @domains, previous_label: h("<"), next_label: h(">") %>
+
+
+<br>
+
+<% if user_signed_in? %>
+<h2>Import Data with CSV</h2>
+<%= form_tag import_domains_path, multipart: true do %>
+  <%= file_field_tag :file %><br><br>
+  <%= submit_tag "Import" %>
+<% end %>
+<% end %>
+
+</div>
+</div>
+</section>

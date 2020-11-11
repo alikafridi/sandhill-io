@@ -1,0 +1,243 @@
+<section class="bg-gradient-2">
+  <img src="assets/img/header-1.jpg" alt="Image" class="bg-image opacity-10">
+  <div class="container height-md-20">
+    <div class="row">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <h1 class="display-4 text-white">
+          <%= @daycare.name %>
+        </h1>
+        <p class="lead mb-0 text-white">
+          <%= @daycare.address %>
+        </p>
+        <p class="lead mb-0 text-white">
+          <% if user_signed_in? %>
+          <%= link_to 'Edit', edit_daycare_path(@daycare) %> |
+          <%= link_to 'Back', daycares_path %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-9">
+            <article>
+              <h2>Position Description:</h2>
+              <p>
+                Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+              </p>
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque.
+              </p>
+              <blockquote class="text-center">
+                <span class="h4 d-block">
+                  &#x201C;Insight is a really simple idea, made possible by technology. If there&#x2019;s something you need doing&#x201D;
+                </span>
+                <span>&#x2014; Anthony Vasquez, CEO</span>
+              </blockquote>
+              <p>
+                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum.
+              </p>
+              <p>
+                <strong>Url:</strong>
+                <%= @daycare.url %>
+              </p>
+
+              <p>
+                <strong>Call phone:</strong>
+                <%= @daycare.call_phone %>
+              </p>
+
+              <p>
+                <strong>Text phone:</strong>
+                <%= @daycare.text_phone %>
+              </p>
+
+              <p>
+                <strong>Email:</strong>
+                <%= @daycare.email %>
+              </p>
+
+              <p>
+                <strong>Center description:</strong>
+                <%= @daycare.center_description %>
+              </p>
+
+              <p>
+                <strong>Additional info:</strong>
+                <%= @daycare.additional_info %>
+              </p>
+
+              <p>
+                <strong>Yelp url:</strong>
+                <%= @daycare.yelp_url %>
+              </p>
+
+              <p>
+                <strong>Hours open:</strong>
+                <%= @daycare.hours_open %>
+              </p>
+
+              <p>
+                <strong>Days open:</strong>
+                <%= @daycare.days_open %>
+              </p>
+
+              <p>
+                <strong>Ages:</strong>
+                <%= @daycare.ages %>
+              </p>
+
+              <p>
+                <strong>Center type:</strong>
+                <%= @daycare.center_type %>
+              </p>
+
+              <p>
+                <strong>Center tuition:</strong>
+                <%= @daycare.center_tuition %>
+              </p>
+
+              <p>
+                <strong>Care type:</strong>
+                <%= @daycare.care_type %>
+              </p>
+
+              <p>
+                <strong>Accreditation type:</strong>
+                <%= @daycare.accreditation_type %>
+              </p>
+
+              <p>
+                <strong>Religious affiliations:</strong>
+                <%= @daycare.religious_affiliations %>
+              </p>
+
+              <p>
+                <strong>Languages spoken:</strong>
+                <%= @daycare.languages_spoken %>
+              </p>
+
+              <p>
+                <strong>Spots available:</strong>
+                <%= @daycare.spots_available %>
+              </p>
+
+              <p>
+                <strong>Availability information:</strong>
+                <%= @daycare.availability_information %>
+              </p>
+
+              <p>
+                <strong>Rating score:</strong>
+                <%= @daycare.rating_score %>
+              </p>
+
+              <p>
+                <strong>Rating count:</strong>
+                <%= @daycare.rating_count %>
+              </p>
+
+              <p>
+                <strong>Student teacher ratio:</strong>
+                <%= @daycare.student_teacher_ratio %>
+              </p>
+
+              <p>
+                <strong>Added tags:</strong>
+                <%= @daycare.added_tags %>
+              </p>
+
+              <p>
+                <strong>Contact Name:</strong>
+                <%= @daycare.contact_name %>
+              </p>
+
+              <p>
+                <strong>Contact Position:</strong>
+                <%= @daycare.contact_position %>
+              </p>
+
+              <p>
+                <strong>Contact Personal Number:</strong>
+                <%= @daycare.contact_personal_num %>
+              </p>
+
+              <p>
+                <strong>Daycare License Number:</strong>
+                <%= @daycare.daycare_license_number %>
+              </p>
+
+              <p>
+                <strong>Center District:</strong>
+                <%= @daycare.center_district %>
+              </p>
+
+              <p>
+                <strong>Center Fax #:</strong>
+                <%= @daycare.center_fax %>
+              </p>
+
+              <p>
+                <strong>Latitude:</strong>
+                <%= @daycare.latitude %>
+              </p>
+
+              <p>
+                <strong>Longitude:</strong>
+                <%= @daycare.longitude %>
+              </p>
+
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 sidebar">
+        <div class="sticky-top">
+          <div class="mb-3 card card-body">
+            <a href="#" class="btn btn-primary">Apply Now</a>
+          </div>
+          <div>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>Posted:</span>
+                  <span class="text-dark">July 9 2018</span>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>Applications Close:</span>
+                  <span class="text-dark">July 31 2018</span>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>Updated:</span>
+                  <span class="text-dark">Yesterday</span>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>Department:</span>
+                  <a href="#">Design</a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>Starting Salary:</span>
+                  <span class="text-dark">Negotioable</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

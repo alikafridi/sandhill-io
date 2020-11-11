@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <%= link_to "SandHill", root_path, class: "navbar-brand gotham-bold" %>
+    <%#= link_to (image_tag "shifts.png", width: '200'), root_path, class: "navbar-brand gotham-bold" %>
+    <div class="d-flex order-lg-3 ml-lg-2">
+
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", signout_path, method: :delete, class: "btn btn-light" %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path, class: "btn btn-light" %> &nbsp;
+        <%= link_to "Sign In", signin_path, class: "btn btn-primary" %>
+      <% end %>
+
+      <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target=".navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-between navMenu order-lg-2">
+      <div class="dropdown">
+
+      </div>
+      <div class="d-lg-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between my-1 my-lg-0">
+          <ul class="navbar-nav d-flex flex-row">
+            <%# if user_signed_in? %>
+            <li class="nav-item"><%= link_to "Blog Posts", blogs_path, class: "nav-link pr-2 un" %></li>
+            <%# end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

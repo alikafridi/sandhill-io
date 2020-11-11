@@ -1,0 +1,172 @@
+<%= form_with(model: daycare, local: true) do |form| %>
+  <% if daycare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daycare.errors.count, "error") %> prohibited this daycare from being saved:</h2>
+
+      <ul>
+      <% daycare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :daycare_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :daycare_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :daycare_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :call_phone %>
+    <%= form.text_field :call_phone, id: :daycare_call_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_phone %>
+    <%= form.text_field :text_phone, id: :daycare_text_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :daycare_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :center_description %>
+    <%= form.text_field :center_description, id: :daycare_center_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :additional_info %>
+    <%= form.text_field :additional_info, id: :daycare_additional_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yelp_url %>
+    <%= form.text_field :yelp_url, id: :daycare_yelp_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hours_open %>
+    <%= form.text_field :hours_open, id: :daycare_hours_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :days_open %>
+    <%= form.text_field :days_open, id: :daycare_days_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ages %>
+    <%= form.text_field :ages, id: :daycare_ages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :center_type %>
+    <%= form.text_field :center_type, id: :daycare_center_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :center_tuition %>
+    <%= form.text_field :center_tuition, id: :daycare_center_tuition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :care_type %>
+    <%= form.text_field :care_type, id: :daycare_care_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accreditation_type %>
+    <%= form.text_field :accreditation_type, id: :daycare_accreditation_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :religious_affiliations %>
+    <%= form.text_field :religious_affiliations, id: :daycare_religious_affiliations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :languages_spoken %>
+    <%= form.text_field :languages_spoken, id: :daycare_languages_spoken %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spots_available %>
+    <%= form.check_box :spots_available, id: :daycare_spots_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availability_information %>
+    <%= form.text_field :availability_information, id: :daycare_availability_information %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating_score %>
+    <%= form.text_field :rating_score, id: :daycare_rating_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating_count %>
+    <%= form.number_field :rating_count, id: :daycare_rating_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_teacher_ratio %>
+    <%= form.text_field :student_teacher_ratio, id: :daycare_student_teacher_ratio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :added_tags %>
+    <%= form.text_field :added_tags, id: :daycare_added_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_name %>
+    <%= form.text_field :contact_name, id: :daycare_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_position %>
+    <%= form.text_field :contact_position, id: :daycare_contact_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_personal_num %>
+    <%= form.text_field :contact_personal_num, id: :daycare_contact_personal_num %>
+  </div>
+
+  <div class="field">
+    <%= form.label :daycare_license_number %>
+    <%= form.text_field :daycare_license_number, id: :daycare_license_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :center_district %>
+    <%= form.text_field :center_district, id: :daycare_center_district %>
+  </div>
+
+  <div class="field">
+    <%= form.label :center_fax %>
+    <%= form.text_field :center_fax, id: :daycare_center_fax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_owner %>
+    <%= form.text_field :user_owner, id: :daycare_user_owner %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

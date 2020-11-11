@@ -1,0 +1,32 @@
+<%= form_with(model: domain_alexa, local: true) do |form| %>
+  <% if domain_alexa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(domain_alexa.errors.count, "error") %> prohibited this domain_alexa from being saved:</h2>
+
+      <ul>
+      <% domain_alexa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :domain_id %>
+    <%= form.number_field :domain_id, id: :domain_alexa_domain_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :domain_url %>
+    <%= form.text_field :domain_url, id: :domain_alexa_domain_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alexa_rank %>
+    <%= form.number_field :alexa_rank, id: :domain_alexa_alexa_rank %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

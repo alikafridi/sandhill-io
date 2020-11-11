@@ -1,0 +1,156 @@
+<section class="bg-white">
+<div class="container">
+<h1 class="almarai"><%= @domain.domain %> <%= link_to (fa_icon "external-link"), ('https://' + @domain.domain), target: :_blank, rel: 'nofollow' %></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @domain.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @domain.description %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <!--<img src="https://logo.clearbit.com/<%= @domain.domain %>">-->
+  <%= @domain.logo %>
+</p>
+
+<p>
+  <strong>Year founded:</strong>
+  <%= @domain.year_founded %>
+</p>
+
+<p>
+  <strong>Headquarters:</strong>
+  <%= @domain.headquarters %>
+</p>
+
+<p>
+  <strong>Cover photo:</strong>
+  <%= @domain.cover_photo %>
+</p>
+
+<p>
+  <strong>Countries:</strong>
+  <%= @domain.countries %>
+</p>
+
+<p>
+  <strong>Reach Views Per Million:</strong>
+  <%= @domain.reach_views_per_million %>
+</p>
+
+
+<p>
+  <strong>Page Views Per Million:</strong>
+  <%= @domain.page_views_per_million %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @domain.status %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <% @categories.each do |c| %>
+    <%= link_to c.name, c %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Locations:</strong>
+  <% @locations.each do |c| %>
+    <%= link_to c.name, c %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @domain.sub_category %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @domain.tag_list %>
+</p>
+
+<p>
+  <strong>Ancestry:</strong>
+  <%= @domain.ancestry %>
+</p>
+
+<p>
+  <strong>Comm platform:</strong>
+  <%= @domain.comm_platform %>
+</p>
+
+<p>
+  <strong>Alexa rank:</strong>
+  <%= @domain.alexa_rank %>
+</p>
+
+<p>
+  <strong>Alexa growth:</strong>
+  <%= @domain.alexa_90day_delta %>
+</p>
+
+<p>
+  <strong>Funds raised:</strong>
+  <%= @domain.funds_raised %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @domain.platform %>
+</p>
+
+<p>
+  <strong>Alexa Updated:</strong>
+  <%= @domain.alexa_enriched %>
+</p>
+
+<p>
+  <strong>Domain Updated:</strong>
+  <%= @domain.domain_enriched %>
+</p>
+
+<p>
+  <strong>Employee Count:</strong>
+  <%= @domain.employee_count %>
+</p>
+
+<p>
+  <strong>Employee Growth:</strong>
+  <%= @domain.employee_growth %>
+</p>
+
+<% if defined?(@company) %>
+<p> 
+  <strong>Company:</strong>
+  <%= link_to @company.name, @company %>
+</p>
+<% end %>
+
+<p><strong>Alexa Counts:</strong></p>
+<% if @alexa_counts != nil %>
+  <%= line_chart @alexa_counts.group_by_day(:date).maximum(:alexa_rank) %>
+<% end %>
+
+<!-- 
+<p><strong>Linkedin Counts:</strong></p>
+<% if @linkedin_counts != nil %>
+  <%= line_chart @linkedin_counts.group_by_day(:date).maximum(:employee_count) %>
+<% end %> --> 
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_domain_path(@domain) %> |
+<%= link_to 'Destroy', @domain, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', domains_path %>
+<br><br>
+<%= link_to 'New Domain', new_domain_path, class: "btn btn-primary" %>
+<% end %>
+<br><br>
+</div>
+</section>

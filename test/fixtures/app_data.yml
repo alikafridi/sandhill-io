@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app_id: 1
+  app_type: MyString
+  monthly_revenue: 1
+  monthly_downloads: 1
+  date_collected: 2020-07-27 20:01:56
+
+two:
+  app_id: 1
+  app_type: MyString
+  monthly_revenue: 1
+  monthly_downloads: 1
+  date_collected: 2020-07-27 20:01:56

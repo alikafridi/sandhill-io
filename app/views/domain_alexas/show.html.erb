@@ -1,0 +1,49 @@
+<div class="container">
+<p>
+  <strong>Domain Id:</strong>
+  <%= @domain_alexa.domain_id %>
+</p>
+
+<p>
+  <strong>Domain URL:</strong>
+  <%= @domain_alexa.domain_url %>
+</p>
+
+<p>
+  <strong>Alexa rank:</strong>
+  <%= @domain_alexa.alexa_rank %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @domain_alexa.date %>
+</p>
+
+<p>
+  <strong>Reach Rank:</strong>
+  <%= @domain_alexa.reach_rank_value %>
+</p>
+
+<p>
+  <strong>Reach PerMillion:</strong>
+  <%= @domain_alexa.reach_per_million_value %>
+</p>
+
+<p>
+  <strong>Page Views Rank:</strong>
+  <%= @domain_alexa.page_views_rank_value %>
+</p>
+
+<p>
+  <strong>Page Views PerMillion:</strong>
+  <%= @domain_alexa.page_views_per_million_value %>
+</p>
+
+<p>
+  <strong>Page Views PerUser:</strong>
+  <%= @domain_alexa.page_views_per_user_value %>
+</p>
+
+<%= link_to 'Edit', edit_domain_alexa_path(@domain_alexa) %> |
+<%= link_to 'Back', domain_alexas_path %>
+</div>

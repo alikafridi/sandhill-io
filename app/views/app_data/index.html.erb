@@ -1,0 +1,35 @@
+<div class="container">
+<h1>App Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>App type</th>
+      <th>Monthly revenue</th>
+      <th>Monthly downloads</th>
+      <th>Date collected</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @app_data.each do |app_datum| %>
+      <tr>
+        <td><%= app_datum.mobile_app_id %></td>
+        <td><%= app_datum.app_type %></td>
+        <td><%= app_datum.monthly_revenue %></td>
+        <td><%= app_datum.monthly_downloads %></td>
+        <td><%= app_datum.date_collected %></td>
+        <td><%= link_to 'Show', app_datum %></td>
+        <td><%= link_to 'Edit', edit_app_datum_path(app_datum) %></td>
+        <td><%= link_to 'Destroy', app_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New App Datum', new_app_datum_path %>
+</div>

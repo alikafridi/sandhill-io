@@ -1,0 +1,67 @@
+
+<div class="container">
+<p>
+  <strong>Name:</strong>
+  <%= @agency.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @agency.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @agency.image_url %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <% @categories.each do |c| %>
+    <%= link_to c.name, c %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @agency.logo_url %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @agency.domain %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @agency.type %>
+</p>
+
+<p>
+  <strong>Clients:</strong>
+  <%= @agency.clients %>
+</p>
+
+<p>
+  <strong>LinkedIn Url</strong>
+  <%= @agency.linkedin_url %>
+</p>
+
+<p>
+  <strong>LinkedIn Url</strong>
+  <%= @agency.location %>
+</p>
+
+<p>
+  <strong>Employee Count:</strong>
+  <%= @agency.employee_count %>
+</p>
+
+<p>
+  <strong>Year Founded:</strong>
+  <%= @agency.year_founded %>
+</p>
+
+<%= link_to 'Edit', edit_agency_path(@agency) %> |
+<%= link_to 'Back', agencies_path %>
+</div>

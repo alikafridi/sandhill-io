@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  domain: MyString
+  name: MyString
+  description: MyString
+  logo: MyString
+  year_founded: 1
+  headquarters: MyString
+  cover_photo: MyString
+  countries: MyString
+  status: MyString
+  category: MyString
+  sub_category: MyString
+  tags: MyString
+  ancestry: MyString
+  comm_platform: MyString
+  alexa_rank: 1
+  funds_raised: MyString
+
+two:
+  domain: MyString
+  name: MyString
+  description: MyString
+  logo: MyString
+  year_founded: 1
+  headquarters: MyString
+  cover_photo: MyString
+  countries: MyString
+  status: MyString
+  category: MyString
+  sub_category: MyString
+  tags: MyString
+  ancestry: MyString
+  comm_platform: MyString
+  alexa_rank: 1
+  funds_raised: MyString

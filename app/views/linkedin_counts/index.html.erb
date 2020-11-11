@@ -1,0 +1,51 @@
+<div class="container">
+
+<h1>Linkedin Counts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company Id</th>
+      <th>Employee Count</th>
+      <th>Domain</th>
+      <th>Uid</th>
+      <th>Date</th>
+      <th>Created At</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkedin_counts.each do |linkedin_count| %>
+      <tr>
+        <td><%= linkedin_count.company_id %></td>
+        <td><%= linkedin_count.employee_count %></td>
+        <td><%= linkedin_count.domain %></td>
+        <td><%= linkedin_count.uid %></td>
+        <td><%= linkedin_count.date %></td>
+        <td><%= linkedin_count.created_at %></td>
+        <td><%= link_to 'Show', linkedin_count %></td>
+        <td><%= link_to 'Edit', edit_linkedin_count_path(linkedin_count) %></td>
+        <td><%= link_to 'Destroy', linkedin_count, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkedin Count', new_linkedin_count_path %>
+
+
+
+<% if user_signed_in? %>
+<h2>Import Data with CSV</h2>
+<%= form_tag import_linkedin_counts_path, multipart: true do %>
+  <%= file_field_tag :file %><br><br>
+  <%= submit_tag "Import" %>
+<% end %>
+<% end %>
+
+
+
+</div>

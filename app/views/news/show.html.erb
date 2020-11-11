@@ -1,0 +1,34 @@
+<div class="container">
+<p>
+  <strong>Title:</strong>
+  <%= @news.title %>
+</p>
+
+<p>
+  <strong>Article link:</strong>
+  <%= @news.article_link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @news.description %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @news.upvotes %>
+</p>
+
+<p>
+  <strong>Published Date:</strong>
+  <%= @news.date_published %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @news.tags %>
+</p>
+
+<%= link_to 'Edit', edit_news_path(@news) %> |
+<%= link_to 'Back', news_index_path %>
+</div>

@@ -1,0 +1,19 @@
+// Place all the styles related to the news controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.news {
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+
+}
+
+.news a {
+  color:black;
+  transition: .2s ease;
+}
+
+.news a:hover {
+  
+  color:#e74c3c; /*#3498db;*/
+}

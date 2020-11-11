@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  slug: MyString
+  ios_link: MyString
+  android_link: MyString
+  ios_sensortower: MyString
+  android: 
+  company_id: MyString
+
+two:
+  name: MyString
+  slug: MyString
+  ios_link: MyString
+  android_link: MyString
+  ios_sensortower: MyString
+  android: 
+  company_id: MyString

@@ -1,0 +1,47 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>To Be Updated</h1>
+    </div>
+</div>
+
+<section class="height-60" style="background-color:#fff;">
+  <div class="container lato">
+    <div class="row ">
+      <div class="col-xl-12">
+        <h1 class="display-5 gotham-bold" style="color:black;">Track and monitor the digital <%= site_industry %> economy</h1>
+
+        <h2 class="animate__animated animate__slideInUp">Top Categories: </h2>
+        <div class="row ">
+          <% @categories.each do |cat, child| %>
+          <div class="col-sm-3 d-flex center "> 
+            <a href="<%= category_path(cat) %>" class="card text-center hover-effect bg-dark" style="height: 100px; width:100%">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center py-2 ">
+                    <span class="h6 mb-2 text-white"><%= cat.name %></span>
+                </div>
+            </a>
+          </div>
+
+          <% end %>
+        </div>
+
+        <h2>Sub-Categories: </h2>
+        <% @categories.each do |cat, child| %>
+
+        <% cat.descendants.each do |cat2, child| %>
+        &nbsp;&nbsp;&bull;&nbsp; <%= link_to cat2.name, cat2 %> <br>
+        <% end %>
+
+        <% end %>
+        <br><br>
+
+        <h3>Search by Tags:</h3>
+        <% @tags.each do |tag| %>
+          <%= link_to tag.name, domains_path(:tag => tag.name) %> - <%= tag.taggings_count %>
+        <% end %>
+
+        <h1 class="animate__animated animate__fadeInLeft">Search by Tags:</h1>
+
+      </div>
+    </div>
+  </div>
+</section> 

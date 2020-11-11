@@ -1,0 +1,29 @@
+<div class="container">
+<p>
+  <strong>App:</strong>
+  <%= @app_datum.mobile_app_id %>
+</p>
+
+<p>
+  <strong>App type:</strong>
+  <%= @app_datum.app_type %>
+</p>
+
+<p>
+  <strong>Monthly revenue:</strong>
+  <%= @app_datum.monthly_revenue %>
+</p>
+
+<p>
+  <strong>Monthly downloads:</strong>
+  <%= @app_datum.monthly_downloads %>
+</p>
+
+<p>
+  <strong>Date collected:</strong>
+  <%= @app_datum.date_collected %>
+</p>
+
+<%= link_to 'Edit', edit_app_datum_path(@app_datum) %> |
+<%= link_to 'Back', app_data_path %>
+</div>

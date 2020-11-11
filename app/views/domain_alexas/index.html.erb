@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Domain Alexas</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Domain Id</th>
+        <th>Domain</th>
+        <th>Alexa rank</th>
+        <th>Reach Rank</th>
+        <th>Reach PerMillion</th>
+        <th>Page Views Rank</th>
+        <th>Page Views PerMillion</th>
+        <th>Page Views PerUser</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @domain_alexas.each do |domain_alexa| %>
+        <tr>
+          <td><%= domain_alexa.date %></td>
+          <td><%= domain_alexa.domain_id %></td>
+          <td><%= domain_alexa.domain_url %></td>
+          <td><%= domain_alexa.alexa_rank %></td>
+          <td><%= domain_alexa.reach_rank_value %></td>
+          <td><%= domain_alexa.reach_per_million_value %></td>
+          <td><%= domain_alexa.page_views_rank_value %></td>
+          <td><%= domain_alexa.page_views_per_million_value %></td>
+          <td><%= domain_alexa.page_views_per_user_value %></td>
+          <td><%= link_to 'Show', domain_alexa %></td>
+          <td><%= link_to 'Edit', edit_domain_alexa_path(domain_alexa) %></td>
+          <td><%= link_to 'Destroy', domain_alexa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Domain Alexa', new_domain_alexa_path %>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image_url: MyString
+  logo_url: MyString
+  domain: MyString
+  type: 
+  clients: MyString
+
+two:
+  name: MyString
+  image_url: MyString
+  logo_url: MyString
+  domain: MyString
+  type: 
+  clients: MyString

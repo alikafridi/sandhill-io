@@ -1,0 +1,61 @@
+<div class="container">
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ancestry</th>
+      <th>Ordering</th>
+      <% if user_signed_in? %>
+      <th colspan="2"></th>
+      <% end %> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category, cat2| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= category.ancestry %></td>
+        <td><%= category.ordering %></td>
+        <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+        <% category.descendants.each do |cat2, child| %>
+        <tr> 
+          <td>
+          <% i = cat2.depth %>
+          <% while i > 0 %>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <% i = i-1 %>
+          <% end %>
+          &bull;&nbsp;
+          <%= link_to cat2.name, cat2 %></td>
+
+            <td><%= cat2.ancestry %></td>
+            <td><%= cat2.ordering %></td>
+            <% if user_signed_in? %>
+            <td><%= link_to 'Edit', edit_category_path(cat2) %></td>
+            <td><%= link_to 'Destroy', cat2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    <% end %>
+    <tr>
+        <td><%= link_to "Uncategorized", domains_path(:uncategorized => true) %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Category', new_category_path, class: "btn btn-lg btn-primary" %>
+  <br><br>
+<% end %>
+
+</div>

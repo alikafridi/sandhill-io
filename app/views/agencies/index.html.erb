@@ -1,0 +1,65 @@
+<section class="bg-white">
+  <div class="container">
+    <h1>Agencies</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image url</th>
+          <th>Logo url</th>
+          <th>Domain</th>
+          <th>Type</th>
+          <th>Clients</th>
+          <% if user_signed_in? %>
+          <th colspan="2"></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @agencies.each do |agency| %>
+        <tr>
+          <td><%= link_to agency.name, agency %></td>
+          <td><%= agency.image_url %></td>
+          <td><%= agency.logo_url %></td>
+          <td><%= agency.domain %></td>
+          <td><%= agency.type %></td>
+          <td><%= agency.clients %></td>
+          <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
+          <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <% @agencies.each do |agency| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="card hover-effect">
+            <!-- <img class="card-img-top" src="assets/images/shifts.png" alt="Modular Structure" />--> 
+            <div class="center" style="max-height:200px; background:#dcdde1;">
+            <%= image_tag "https://logo.clearbit.com/#{agency.domain}", class: "card-img-top", style: "padding:10px; max-height:180px; width:auto" %>
+            </div>
+
+            <div class="card-body py-3">
+              <h5><%= link_to agency.name, agency %></h5>
+              <div class="mb-4">
+                <p class="inter" style="color:black;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</section>

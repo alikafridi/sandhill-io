@@ -1,0 +1,39 @@
+<section class="bg-white">
+	<div class="container">
+		<h2>Different buttons for different jobs:</h2>
+		<br><br>
+		<% if user_signed_in? %>
+
+			<p class="lead"><b>Create a company link for every domain that is not affiliated with a company</b></p>
+			<%= link_to "Create Companies", uploads_path(:createcompanies => true), class: "btn btn-primary" %>
+
+			<br><br>
+
+			<p class="lead"><b>Get Alexa data for anything that hasn't had alexa pulled in 30 days</b></p>
+			<%= link_to "Alexa Pull", uploads_path(:enrich => true), class: "btn btn-primary" %>
+			
+			<br><br>
+
+			<p class="lead"><b>Calculate 90 day alexa growth scores</b></p>
+			<%= link_to "Growth Scores", uploads_path(:growth => true), class: "btn btn-primary" %>
+			
+			<br><br>
+
+			<p class="lead"><b>Get RSS feeds</b></p>
+			<%= link_to "Get RSS", uploads_path(:news => true), class: "btn btn-primary" %>
+			
+			<br><br>
+
+			<p class="lead"><b>Enrich any domain that hasn't been enriched in 45 days</b></p>
+			<%= link_to "Domain Enrichment", "#", class: "btn btn-primary" %>
+
+			<br><br>
+
+			<p class="lead"><b>Update Employee Counts &amp; Funds Raised</b></p>
+			<%= link_to "Update Counts / Funds Raised", uploads_path(:fund_counts_update => true), class: "btn btn-primary" %>
+
+
+		<% end %>
+
+	</div>
+</section>

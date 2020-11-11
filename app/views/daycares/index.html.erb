@@ -1,0 +1,137 @@
+<div class="jumbotron">
+<div class="container">
+
+  <% if(!params.has_key?(:location) || params.has_key?(:location) == nil || params[:location] == "") %>
+  <h1>Daycares</h1>
+  <% else %> 
+  <h1>Daycares near <%= params[:location] %></h1>
+  <% end %>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="card w-100 no-gutters flex-column flex-md-row">
+        <div class="card-body">
+          <h5 class="card-title">Filters</h5>
+          <p>
+            - Zip Code or Address (Offer multiple with commas?) <br> 
+            - Maximum Distance <br>
+            - Cost of Care <br>
+            - Age of Child <br>
+            - Search by star rating <br>
+          </p>
+
+          <form>
+            <p><b>Type of Facility</b></p>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck6">
+              <label class="custom-control-label" for="customCheck6">Center-Based</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck7">
+              <label class="custom-control-label" for="customCheck7">In-Home</label>
+            </div>
+            <br>
+
+            <p><b>Type of Care</b></p>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck8">
+              <label class="custom-control-label" for="customCheck8">Before School</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck9">
+              <label class="custom-control-label" for="customCheck9">After School</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck10">
+              <label class="custom-control-label" for="customCheck10">Full-Time</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck11">
+              <label class="custom-control-label" for="customCheck11">Over Night</label>
+            </div>
+
+            <br>
+            <p><b>Other Features</b></p>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck5">
+              <label class="custom-control-label" for="customCheck5">Only show centers with availability</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck4">
+              <label class="custom-control-label" for="customCheck4">Open On Weekends</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck3">
+              <label class="custom-control-label" for="customCheck3">Peanut-Free</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">Offers Transportation</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Offers Drop In Care</label>
+            </div>
+          </form>
+
+          <br>
+          <p><b>Other Filters</b><br>
+            - Is Air-Conditioned<br>
+            - Can Administer Medications<br>
+            - Electronic Access<br>
+            - Parent Engagement<br>
+            - Playground<br>
+            - Cameras<br>
+            - Meals offered<br>
+            - No state violations in the past 2 years<br>
+            - Search by dates<br>
+            - Search by number of kids (for multiple spots)<br>
+            - Instant Book (only centers that allow you to immediately book)<br>
+            - Search by Neighborhoods<br>
+            - Languages Spoken by Host<br>
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <% @daycares.each do |daycare| %>
+
+      <a href="<%= daycare_url(daycare) %>">
+        <div class="card w-100 no-gutters flex-column flex-md-row hover-effect">
+          <div class="card-body">
+            <h5 class="card-title"><%= daycare.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= daycare.address %></h6>
+            <p class="card-text"><%= daycare.center_description %></p>
+<!-- 
+            <a href="#" class="card-link">Link 1</a>
+            <a href="#" class="card-link">Link 2</a>
+            <a href="#" class="card-link">Link 3</a>
+          -->
+          </div>
+        </div>
+      </a>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-auto">
+      <nav aria-label="Page navigation example">
+        <%= will_paginate @daycares %>
+      </nav>
+    </div>
+  </div>
+
+  <br>
+
+  <div class ="dlex center">
+    <% if user_signed_in? %>
+    <%= link_to 'New Daycare', new_daycare_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>
+</div>

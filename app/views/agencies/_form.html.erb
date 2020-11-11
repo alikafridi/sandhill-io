@@ -1,0 +1,92 @@
+<div class="container">
+<%= form_with(model: agency, local: true) do |form| %>
+  <% if agency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agency.errors.count, "error") %> prohibited this agency from being saved:</h2>
+
+      <ul>
+      <% agency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :agency_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :domain %>
+    <%= form.text_field :domain, id: :agency_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :linkedin_url %>
+    <%= form.text_field :linkedin_url, id: :agency_linkedin_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :agency_description %>
+  </div>
+
+<% if !@categories.nil? %>
+    <div class="field">
+    <%= form.label :category_ids %>
+
+    <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>
+     
+    <% end %>
+  </div>
+<% end %>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :agency_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url, id: :agency_image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logo_url %>
+    <%= form.text_field :logo_url, id: :agency_logo_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :agency_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clients %>
+    <%= form.text_field :clients, id: :agency_clients %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_founded %>
+    <%= form.text_field :year_founded, id: :agency_year_founded %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :employee_count %>
+    <%= form.text_field :employee_count, id: :agency_employee_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

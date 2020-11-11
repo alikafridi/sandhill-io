@@ -1,0 +1,42 @@
+<%= form_with(model: app_datum, local: true) do |form| %>
+  <% if app_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(app_datum.errors.count, "error") %> prohibited this app_datum from being saved:</h2>
+
+      <ul>
+      <% app_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mobile_app_id %>
+    <%= form.collection_select :mobile_app_id, MobileApp.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :app_type %>
+    <%= form.text_field :app_type, id: :app_datum_app_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_revenue %>
+    <%= form.number_field :monthly_revenue, id: :app_datum_monthly_revenue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_downloads %>
+    <%= form.number_field :monthly_downloads, id: :app_datum_monthly_downloads %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_collected %>
+    <%= form.datetime_select :date_collected, id: :app_datum_date_collected %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

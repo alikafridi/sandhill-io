@@ -1,0 +1,164 @@
+<p>
+  <strong>Tags:</strong>
+  <%= @blog.tags %>
+</p>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+<% end %>
+
+<section>
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
+        <img src="https://via.placeholder.com/900x600" alt="Image" class="rounded">
+      </div>
+    </div>
+    <div class="row mb-4 justify-content-between align-items-center">
+      <div class="col-auto">
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="d-block mr-1">Share:</span>
+          <ul class="list-social-links mb-0">
+            <li><a href="#"><%= fa_icon "twitter" %></a></li>
+            <li><a href="#"><%= fa_icon "facebook" %></a></li>
+            <li><a href="#"><%= fa_icon "linkedin" %></a></li>
+            <li><a href="#"><%= fa_icon "medium" %></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center text-center mb-4 mb-md-5">
+      <div class="col-md-11 col-lg-10 col-xl-9">
+        <div class="my-3">
+          <h1><%= @blog.title %></h1>
+          <div class="d-flex align-items-center justify-content-center">
+            <span><%= @blog.date %> in&#xA0;</span>
+            <a href="#" class="mr-2">Business</a>
+            <span>by <%= @blog.author %></span>
+          </div>
+        </div>
+        <span class="lead"><%= @blog.highlight %> </span>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-9 col-lg-8 col-xl-7">
+        <article>
+          <p><%= markdown(@blog.content) %>
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col">
+        <span class="h2">Related articles</span>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card">
+          <a href="#">
+            <img class="card-img-top" src="assets/img/lending-5.jpg" alt="Small business up close: Insight">
+          </a>
+          <div class="card-body py-3">
+            <a href="#" class="mb-2 d-block">Business</a>
+            <a href="#">
+              <h5>Small business up close: Insight</h5>
+            </a>
+            <div class="mb-4">
+              <p>An interview with this budding young business</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex align-items-center">
+              <img src="assets/img/avatar-female-3.jpg" alt="Marianne Blake" class="avatar mr-2">
+              <span>Marianne Blake</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card">
+          <a href="#">
+            <img class="card-img-top" src="assets/img/lending-4.jpg" alt="Grow with confidence. How forward thinking can impact your business">
+          </a>
+          <div class="card-body py-3">
+            <a href="#" class="mb-2 d-block">Business</a>
+            <a href="#">
+              <h5>Grow with confidence. How forward thinking can impact your business</h5>
+            </a>
+            <div class="mb-4">
+              <p>Why planning is essential to every business&apos;s success.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex align-items-center">
+              <img src="assets/img/avatar-male-3.jpg" alt="Joseph Pearce" class="avatar mr-2">
+              <span>Joseph Pearce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card">
+          <a href="#">
+            <img class="card-img-top" src="assets/img/lending-2.jpg" alt="Balancing work and life as a freelancer">
+          </a>
+          <div class="card-body py-3">
+            <a href="#" class="mb-2 d-block">Freelance</a>
+            <a href="#">
+              <h5>Balancing work and life as a freelancer</h5>
+            </a>
+            <div class="mb-4">
+              <p>Burning out is cited as a major concern for most freelancers.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex align-items-center">
+              <img src="assets/img/avatar-female-4.jpg" alt="Annabel Smythe" class="avatar mr-2">
+              <span>Annabel Smythe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="bg-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-9 col-lg-10">
+        <span class="d-block h3">Never miss an update</span>
+        <form class="row align-items-center mb-2">
+
+          <div class="col-md-9 input-group input-group-lg mb-2 mb-md-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons">mail_outline</i>
+              </span>
+            </div>
+            <input type="email" class="form-control" placeholder="Enter your email address" aria-label="Enter your email address">
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-block btn-primary" type="submit">Subscribe</button>
+          </div>
+
+        </form>
+        <div class="d-md-flex align-items-center">
+          <span class="d-block text-small">* We&apos;ll never share your email with third parties</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

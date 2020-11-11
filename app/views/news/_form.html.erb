@@ -1,0 +1,57 @@
+<%= form_with(model: news, local: true) do |form| %>
+  <% if news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% news.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :news_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_link %>
+    <%= form.text_field :article_link, id: :news_article_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :news_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher, id: :news_publisher %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_published %>
+    <%= form.text_field :date_published, id: :news_date_published %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :news_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :upvotes %>
+    <%= form.number_field :upvotes, id: :news_upvotes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.text_field :tags, id: :news_tags %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

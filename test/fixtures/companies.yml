@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  founders: MyString
+  year_founded: 1
+  linkedin_url: MyString
+  headquarters: MyString
+  combined_alexa: 1
+  employee_count: 1
+  type: 
+  capital_raised: 1
+
+two:
+  name: MyString
+  founders: MyString
+  year_founded: 1
+  linkedin_url: MyString
+  headquarters: MyString
+  combined_alexa: 1
+  employee_count: 1
+  type: 
+  capital_raised: 1

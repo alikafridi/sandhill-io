@@ -1,0 +1,2 @@
+module LinkedinCountsHelper
+end

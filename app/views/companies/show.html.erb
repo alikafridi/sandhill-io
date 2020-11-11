@@ -1,0 +1,69 @@
+<div class="container">
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Main Domain:</strong>
+  <%= @company.main_domain %>
+</p>
+
+<p>
+  <strong>Founders:</strong>
+  <%= @company.founders %>
+</p>
+
+<p>
+  <strong>Year founded:</strong>
+  <%= @company.year_founded %>
+</p>
+
+<p>
+  <strong>Linkedin url:</strong>
+  <%= @company.linkedin_url %>
+</p>
+
+<p>
+  <strong>Headquarters:</strong>
+  <%= @company.headquarters %>
+</p>
+
+<p>
+  <strong>Combined alexa:</strong>
+  <%= @company.combined_alexa %>
+</p>
+
+<p>
+  <strong>Employee count:</strong>
+  <%= @company.employee_count %>
+</p>
+
+<p>
+  <strong>Stage:</strong>
+  <%= @company.stage %>
+</p>
+
+<p>
+  <strong>Capital raised:</strong>
+  <%= @company.capital_raised %>
+</p>
+
+<p>
+  <strong>Affiliated Domains</strong>
+  <% @company.domains.each do |d|%>
+    <%= link_to d.domain, d %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Affiliated Mobile Apps</strong>
+  <% @company.mobile_apps.each do |d|%>
+    <%= link_to d.name, d %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
+</div>

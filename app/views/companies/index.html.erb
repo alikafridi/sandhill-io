@@ -1,0 +1,61 @@
+<section class="bg-white">
+<div class="container">
+<h1>Companies  <%= link_to 'New Company', new_company_path, class: "btn btn-md btn-primary" %></h1>
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Main Domain</th>
+ <!--     <th>Founders</th>
+      <th>Year founded</th> -->
+      <th>Linkedin url</th>
+      <th>Combined alexa</th>
+      <th>Employee count</th>
+      <!--<th>Headquarters</th>
+      <th>Stage</th>-->
+      <th>Capital raised</th>
+      <th>Ancestry</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company %></td>
+        <td><%= company.main_domain %></td>
+<!--        <td><%= company.founders %></td>
+        <td><%= company.year_founded %></td>-->
+        <td><%= company.linkedin_url %></td>
+        <td><%= company.combined_alexa %></td>
+        <td><%= company.employee_count %></td>
+        <!--<td><%= company.headquarters %></td>
+        <td><%= company.stage %></td>-->
+        <td><%= company.capital_raised %></td>
+        <td><%= company.ancestry %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @companies, previous_label: h("<"), next_label: h(">") %>
+
+<br>
+
+<% if user_signed_in? %>
+  <h2>Import Data with CSV</h2>
+  <%= form_tag import_companies_path, multipart: true do %>
+    <%= file_field_tag :file %><br><br>
+    <%= submit_tag "Import" %>
+  <% end %>
+<% end %>
+
+</div>
+
+
+
+</section>

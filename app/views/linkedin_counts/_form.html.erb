@@ -1,0 +1,38 @@
+<%= form_with(model: linkedin_count, local: true) do |form| %>
+  <% if linkedin_count.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_count.errors.count, "error") %> prohibited this linkedin_count from being saved:</h2>
+
+      <ul>
+      <% linkedin_count.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.number_field :company_id, id: :linkedin_count_company_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_count %>
+    <%= form.number_field :employee_count, id: :linkedin_count_employee_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :linkedin_count_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uid %>
+    <%= form.text_area :uid, id: :linkedin_count_uid %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

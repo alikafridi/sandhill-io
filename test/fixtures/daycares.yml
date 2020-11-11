@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  url: MyString
+  call_phone: MyString
+  text_phone: MyString
+  email: MyString
+  center_description: MyString
+  additional_info: MyString
+  yelp_url: MyString
+  hours_open: MyString
+  days_open: MyString
+  ages: MyString
+  center_type: MyString
+  center_tuition: MyString
+  care_type: MyString
+  accreditation_type: MyString
+  religious_affiliations: MyString
+  languages_spoken: MyString
+  spots_available: false
+  availability_information: MyString
+  rating_score: 9.99
+  rating_count: 1
+  student_teacher_ratio: MyString
+  added_tags: MyString
+
+two:
+  name: MyString
+  address: MyString
+  url: MyString
+  call_phone: MyString
+  text_phone: MyString
+  email: MyString
+  center_description: MyString
+  additional_info: MyString
+  yelp_url: MyString
+  hours_open: MyString
+  days_open: MyString
+  ages: MyString
+  center_type: MyString
+  center_tuition: MyString
+  care_type: MyString
+  accreditation_type: MyString
+  religious_affiliations: MyString
+  languages_spoken: MyString
+  spots_available: false
+  availability_information: MyString
+  rating_score: 9.99
+  rating_count: 1
+  student_teacher_ratio: MyString
+  added_tags: MyString
