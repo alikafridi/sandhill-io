@@ -26,6 +26,26 @@
     <%= form.check_box :auto_public, id: :feed_auto_public %>
   </div>
 
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.text_field :tags, id: :feed_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :follow_url %>
+    <%= form.text_field :follow_url, id: :feed_follow_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :feed_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :default_author %>
+    <%= form.text_field :default_author, id: :feed_default_author %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

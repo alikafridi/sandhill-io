@@ -11,6 +11,10 @@
       <th>Name</th>
       <th>Url</th>
       <th>Auto-public</th>
+      <th>Description</th>
+      <th>Tags</th>
+      <th>Default Author</th>
+      <th>Follow URL</th>
       <% if user_signed_in? %>
         <th colspan="2"></th>
       <% end %>
@@ -23,6 +27,11 @@
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
         <td><%= feed.auto_public %></td>
+        <td><%= feed.description %></td>
+        <td><%= feed.tags %></td>
+        <td><%= feed.default_author %></td>
+        <td><%= feed.follow_url %></td>
+
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
           <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

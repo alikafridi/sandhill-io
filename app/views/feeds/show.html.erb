@@ -15,5 +15,26 @@
   <%= @feed.auto_public %>
 </p>
 
+
+<p>
+  <strong>Description:</strong>
+  <%= @feed.description %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @feed.tags %>
+</p>
+
+<p>
+  <strong>Default Author:</strong>
+  <%= @feed.default_author %>
+</p>
+
+<p>
+  <strong>Follow URL:</strong>
+  <%= @feed.follow_url %>
+</p>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201028035424) do
+ActiveRecord::Schema.define(version: 20201112010029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -225,6 +225,10 @@ ActiveRecord::Schema.define(version: 20201028035424) do
     t.boolean "auto_public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "follow_url"
+    t.string "tags"
+    t.string "description"
+    t.string "default_author"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
