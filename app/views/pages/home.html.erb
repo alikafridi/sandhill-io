@@ -28,7 +28,7 @@
 <div class="row">
   <!-- Left Panel --> 
   <div class="col-sm-9">
-    <h3>The Latest</h3>
+<!--<h3>The Latest</h3>-->
     <div class="row">
       <% last_day = -1 %>
 
@@ -37,22 +37,22 @@
       <% current_day = news.date_published.day %>
 
       <% if current_day != last_day %>
-        <h5><%= news.date_published.strftime("%A, %d %B, %Y") %></h5>
+        <p class="lead gotham-black" style="margin-top:50px;"><%= news.date_published.strftime("%A, %d %B, %Y") %></p>
         <% last_day = news.date_published.day %>
       <% end %> 
 
       <div class="col-10 d-md-flex mb-4 mb-md-0">
         <div class="d-flex">
           <div style="padding-bottom:10px;">
-            <p class="mb-1" style="color:black; font-size:.8em"><%= news.publisher %> | <%= news.author %></p><!-- orig color: #7f8c8d; -->
+            <!-- <p class="mb-1" style="color:black; font-size:.8em"><%= news.publisher %> | <%= news.author %></p><!-- orig color: #7f8c8d; -->
             <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %><!-- – <b style="color:black;"> -->
-              <!-- <% if !news.author.blank? %> (<%= news.author %>) <% end %>-->
+              <% if !news.author.blank? %> (<%= news.author %>) <% end %>
             </b></p>
             <!-- <p class="small"><%#= news.date_published %></p> --> 
             <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_news_path(news) %> | <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+             <%= link_to 'Edit', edit_news_path(news) %> | <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
-          <hr>  
+          <!-- <hr>  --> 
           </div>
             
         </div>

@@ -45,8 +45,17 @@
   src: '/fonts/Inter-Regular.ttf';
 }
 
+@font-face {
+  font-family: 'Inter-ExtraBold';
+  src: '/fonts/Inter-ExtraBold.ttf';
+}
+
 .inter {
   font-family: 'Inter', sans-serif;
+}
+
+.inter-bold {
+  font-family: 'Inter-ExtraBold', sans-serif;
 }
 
 .avenir {
