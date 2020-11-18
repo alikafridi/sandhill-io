@@ -48,6 +48,8 @@ class RssFeedJob < ApplicationJob
             n.publisher = f.name
             n.description = item.description
             n.date_published = item.pubDate
+            n.author = f.author
+            n.tags = f.tags
             #if f.
               #n.public = true
             #end
