@@ -37,6 +37,7 @@ class RssFeedJob < ApplicationJob
     feeds = Feed.all
 
     feeds.each do |f|
+
       open(f.url) do |rss|
         begin
           feed = RSS::Parser.parse(rss)
@@ -48,8 +49,8 @@ class RssFeedJob < ApplicationJob
             n.publisher = f.name
             n.description = item.description
             n.date_published = item.pubDate
-            n.author = f.author
-            n.tags = f.tags
+            n.author = f.default_author
+            #n.tag_list = f.tag_list
             #if f.
               #n.public = true
             #end
@@ -58,6 +59,7 @@ class RssFeedJob < ApplicationJob
         rescue
         end
       end
+      
     end
   end
 end
