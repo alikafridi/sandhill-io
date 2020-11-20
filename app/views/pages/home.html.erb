@@ -13,12 +13,7 @@
 
 <section class="bg-white">
 <div class="container">
-<!--  <h1>Latest Happenings</h1><br><br> -->
-<!-- 
-<div class="center">
-<h1>Discover the companies transforming the retail landscape</h1>
-</div>
--->
+
 <% if user_signed_in? %>
 <div class="center" style="margin-bottom:30px;">
   <%= link_to 'Add a Post', new_news_path, :class => "btn btn-primary btn-lg" %>
@@ -44,9 +39,9 @@
       <div class="col-10 d-md-flex mb-4 mb-md-0">
         <div class="d-flex">
           <div style="padding-bottom:10px;">
-            <p class="mb-1 inter" style="color:; font-size:.8em"><span data-toggle="tooltip" data-placement="top" title="Publisher Description"><%= news.publisher %></span> | <%= news.author %></p><!-- orig color: #7f8c8d; -->
+            <p class="mb-1 inter" style="color:; font-size:.8em"><span data-toggle="tooltip" data-placement="top" title="Publisher Description"><%= news.publisher %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
             <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %><!-- – <b style="color:black;"> -->
-              <% if !news.author.blank? %> (<%= news.author %>) <% end %>
+              
             </b></p>
             <!-- <p class="small"><%#= news.date_published %></p> --> 
             <% if user_signed_in? %>
