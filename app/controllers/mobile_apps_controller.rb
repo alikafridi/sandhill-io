@@ -1,5 +1,6 @@
 class MobileAppsController < ApplicationController
   before_action :set_mobile_app, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   # GET /mobile_apps
   # GET /mobile_apps.json

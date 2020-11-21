@@ -9,12 +9,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Url</th>
-      <th>Auto-public</th>
       <th>Description</th>
       <th>Tags</th>
       <th>Default Author</th>
-      <th>Follow URL</th>
       <% if user_signed_in? %>
         <th colspan="2"></th>
       <% end %>
@@ -24,14 +21,10 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.name %></td>
-        <td><%= feed.url %></td>
-        <td><%= feed.auto_public %></td>
+        <td><%= link_to feed.name, feed.follow_url %></td> 
         <td><%= feed.description %></td>
         <td><%= feed.tag_list %></td>
         <td><%= feed.default_author %></td>
-        <td><%= feed.follow_url %></td>
-
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
           <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -43,6 +36,9 @@
 
 <br>
 
-<%= link_to 'New Feed', new_feed_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Feed', new_feed_path %>
+<% end %>
+
 </div>
 </section>

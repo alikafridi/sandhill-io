@@ -1,5 +1,6 @@
 class AppDataController < ApplicationController
   before_action :set_app_datum, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   # GET /app_data
   # GET /app_data.json

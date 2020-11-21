@@ -1,7 +1,7 @@
 class DomainsController < ApplicationController
   include ApplicationHelper
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :autocomplete]
+  before_action :authenticate_user!, except: [:index, :autocomplete]
 
   # GET /domains
   # GET /domains.json
