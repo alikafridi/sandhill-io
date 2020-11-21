@@ -26,8 +26,17 @@ var ready = function() {
 	// console.log("It works on each visit!");
 	$('[data-toggle="tooltip"]').tooltip();
   gtag('config', 'G-3FGMDJN3H6')
-
 };
 
-$(document).on("turbolinks:load", ready);
+var hotjar = (function(h,o,t,j,a,r){
+	console.log("HotJar getting called!");
+	        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	        h._hjSettings={hjid:2112386,hjsv:6};
+	        a=o.getElementsByTagName('head')[0];
+	        r=o.createElement('script');r.async=1;
+	        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	        a.appendChild(r);
+	    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
+$(document).on("turbolinks:load", ready);
+$(document).on("turbolinks:load", hotjar);

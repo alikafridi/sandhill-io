@@ -82,6 +82,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.tool2 {
+  font-size:.6em;
+}
+
 .ui-autocomplete {
     position: absolute;
     z-index: 1000;
@@ -122,14 +126,6 @@
     -o-transform: translate(2px, -2px);
     -webkit-transform: translate(2px, -2px);
     transform: translate(2px, -2px)
-}
-
-.circ-bold {
-  font-family: 'Circular-Std-Bold';
-}
-
-.circ-book {
-  font-family: 'Circular-Std-Book';
 }
 
 .lato{

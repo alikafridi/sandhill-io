@@ -50,7 +50,9 @@ class RssFeedJob < ApplicationJob
             n.description = item.description
             n.date_published = item.pubDate
             n.author = f.default_author
-            #n.tag_list = f.tag_list
+            n.tag_list = f.tag_list
+            n.feed_id = f.id
+            n.publish = true
             #if f.
               #n.public = true
             #end

@@ -48,7 +48,22 @@
 
   <div class="field">
     <%= form.label :tags %>
-    <%= form.text_field :tags, id: :news_tags %>
+    <%= form.text_field :tag_list, id: :news_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publisher_description %>
+    <%= form.text_field :publisher_description, id: :news_publisher_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :feed_id %>
+    <%= form.number_field :feed_id, id: :news_feed_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publish %>
+    <%= form.check_box :publish, id: :feed_publish %>
   </div>
 
   <div class="actions">

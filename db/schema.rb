@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201112010029) do
+ActiveRecord::Schema.define(version: 20201121050210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,6 +290,10 @@ ActiveRecord::Schema.define(version: 20201112010029) do
     t.string "author"
     t.datetime "date_published"
     t.boolean "publish"
+    t.integer "feed_id"
+    t.string "publisher_description"
+    t.string "slug"
+    t.index ["slug"], name: "index_news_on_slug", unique: true
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

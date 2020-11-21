@@ -26,7 +26,22 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= @news.tags %>
+  <%= @news.tag_list %>
+</p>
+
+<p>
+  <strong>Publisher Description:</strong>
+  <%= @news.publisher_description %>
+</p>
+
+<p>
+  <strong>Feed Id:</strong>
+  <%= @news.feed_id %>
+</p>
+
+<p>
+  <strong>Publish?</strong>
+  <%= @news.publish %>
 </p>
 
 <%= link_to 'Edit', edit_news_path(@news) %> |

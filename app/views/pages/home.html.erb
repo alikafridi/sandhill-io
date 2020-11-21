@@ -42,7 +42,7 @@
       <div class="col-10 d-md-flex mb-4 mb-md-0">
         <div class="d-flex">
           <div style="padding-bottom:10px;">
-            <p class="mb-1 inter" style="color:; font-size:.8em"><span data-toggle="tooltip" data-placement="top" title="Publisher Description"><%= news.publisher %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
+            <p class="mb-1 inter" style="color:; font-size:.8em"><!--<span data-toggle="tooltip" data-placement="top" data-html="true" title="<small>Publisher Description</small>">--><%= news.publisher %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
             <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %><!-- – <b style="color:black;"> -->
               
             </b></p>
@@ -65,8 +65,6 @@
   <div class="col-sm-3 sidebar">
     <!-- Submit a Post
     Suggest a Feed --> 
-
-
     
     <h5 class="mb-1">Top Posts This Week</h5>
 

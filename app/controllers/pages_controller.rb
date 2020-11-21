@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @categories = Category.all.arrange
     @tags = Domain.tag_counts_on(:tags)
-    @news = News.where.not(date_published: nil).order("date_published DESC").page(params[:page]).per_page(25)
+    @news = News.where.not(date_published: nil).where(publish: true).order("date_published DESC").page(params[:page]).per_page(25)
   end
 
   def about
@@ -19,23 +19,11 @@ class PagesController < ApplicationController
   end
 
   def uploads
-    if params[:createcompanies]
-      CreateCompaniesForDomainsJob.perform_later
-    end
-
-    if params[:enrich]
-      EnrichExistingDomainsJob.perform_later
-    end
-
-    if params[:growth]
-      CalculateGrowthJob.perform_later
-    end
-
     if params[:news]
       RssFeedJob.perform_later
     end
 
-    if params[:fund_counts_update]
+    if params[:update_flags]
       UpdateCountsJob.perform_later
     end
 
