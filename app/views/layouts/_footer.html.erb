@@ -12,7 +12,7 @@
           <% if user_signed_in? %>
             <li><%= link_to "About", about_path, class: "text-white text-small" %></li>
             <li><%= link_to "New Feed", new_feed_path, class: "text-white text-small" %></li>
-            <li><%= link_to "Log Out", signout_path, method: :delete, class: "btn btn-light" %></li>      
+            <li><%= link_to "Log Out", signout_path, method: :delete, class: "text-white text-small" %></li>      
           <% end %>
       </div>
     </div>

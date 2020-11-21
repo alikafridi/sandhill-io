@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SandHill – The Latest</title>
+  <title>SandHill | New Venture Insights</title>
   <%= csrf_meta_tags %>
 
   <meta charset="utf-8">
@@ -11,7 +11,18 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= favicon_link_tag asset_path('web_icon.svg') %>
+  <%= favicon_link_tag asset_path('rocket.png') %>
+
+  <% if Rails.env.production? %>
+  	<!-- Global site tag (gtag.js) - Google Analytics -->
+  	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  	<script>
+    	window.dataLayer = window.dataLayer || [];
+    	function gtag(){dataLayer.push(arguments);}
+    	gtag('js', new Date());
+  	</script>
+	<% end %>
+
 </head>
 
 <body>

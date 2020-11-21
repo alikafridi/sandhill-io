@@ -22,7 +22,12 @@
 //= require turbolinks
 //= require_tree .
 
-//$(document).on("turbolinks:load", function() {
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+var ready = function() {
+	// console.log("It works on each visit!");
+	$('[data-toggle="tooltip"]').tooltip();
+  gtag('config', 'G-3FGMDJN3H6')
+
+};
+
+$(document).on("turbolinks:load", ready);
+

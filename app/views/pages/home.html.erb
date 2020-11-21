@@ -12,6 +12,7 @@
 </section>
 
 <section class="bg-white">
+
 <div class="container">
 
 <% if user_signed_in? %>
@@ -19,6 +20,8 @@
   <%= link_to 'Add a Post', new_news_path, :class => "btn btn-primary btn-lg" %>
 </div>
 <% end %>
+
+
 
 <div class="row">
   <!-- Left Panel --> 
@@ -62,6 +65,8 @@
   <div class="col-sm-3 sidebar">
     <!-- Submit a Post
     Suggest a Feed --> 
+
+
     
     <h5 class="mb-1">Top Posts This Week</h5>
 
