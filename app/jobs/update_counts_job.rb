@@ -11,9 +11,9 @@ class UpdateCountsJob < ApplicationJob
       n.save
     end
 
-    #2 - Go through all news and if description is empty, feed in description of it's feed (if there is a feed)
+    # 2 - Go through all news and if description is empty, feed in description of it's feed (if there is a feed)
+    # Also update any descriptions for feeds that have been stored... (for authors / publications)
     # TODO
 
-    
   end
 end

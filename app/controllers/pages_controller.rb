@@ -42,4 +42,7 @@ class PagesController < ApplicationController
   def sitemap
   end
 
+  def talent
+  end
+
 end

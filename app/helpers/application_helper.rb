@@ -32,6 +32,11 @@ module ApplicationHelper
     return domain
   end
 
+  def sanitize_url2(domain)
+    domain = domain.split("?")[0]
+    return domain
+  end
+
   def collection_for_parent_select
     @categories = ancestry_options(Category.unscoped.arrange(:order => 'name')) {|i| "#{'-' * i.depth} #{i.name}" }
   end

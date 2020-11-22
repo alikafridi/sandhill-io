@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'terms' => 'pages#terms'
   get 'contact' => 'pages#contact'
   get 'uploads' => 'pages#uploads'
+  get 'talent' => 'pages#talent'
 
   get 'sitemap' => 'pages#sitemap'
   get 'for_providers' => 'pages#for_providers'
