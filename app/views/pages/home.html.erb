@@ -57,7 +57,10 @@
     <% end %>
     
     </div>
-    <%= will_paginate @news, previous_label: h("<"), next_label: h(">") %>
+
+    <div class="center" style="margin-top:40px;">
+      <%= will_paginate @news, previous_label: h("<"), next_label: h(">") %>
+    </div>
   </div>
 
 

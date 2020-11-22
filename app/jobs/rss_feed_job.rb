@@ -47,8 +47,12 @@ class RssFeedJob < ApplicationJob
             n.title = fix(item.title)
             n.article_link = item.link
             n.publisher = f.name
-            n.description = item.description
-            n.date_published = item.pubDate
+            n.description = item.description # pot
+            begin
+              n.date_published = item.pubDate # pot
+            rescue
+              n.date_published =
+            end
             n.author = f.default_author
             n.tag_list = f.tag_list
             n.feed_id = f.id
