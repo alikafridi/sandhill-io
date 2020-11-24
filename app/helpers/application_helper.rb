@@ -33,6 +33,7 @@ module ApplicationHelper
   end
 
   def sanitize_url2(domain)
+    domain = domain.to_s.downcase
     domain = domain.split("?")[0]
     return domain
   end

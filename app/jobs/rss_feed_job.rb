@@ -60,7 +60,7 @@ class RssFeedJob < ApplicationJob
             #if f.
               #n.public = true
             #end
-            n.save
+            n.save!
           end
         rescue
         end
