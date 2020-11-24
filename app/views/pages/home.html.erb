@@ -21,8 +21,6 @@
 </div>
 <% end %>
 
-
-
 <div class="row">
   <!-- Left Panel --> 
   <div class="col-sm-9">
@@ -42,9 +40,8 @@
       <div class="col-10 d-md-flex mb-4 mb-md-0">
         <div class="d-flex">
           <div style="padding-bottom:10px;">
-            <p class="mb-1 inter" style="color:; font-size:.8em"><!--<span data-toggle="tooltip" data-placement="top" data-html="true" title="<small>Publisher Description</small>">--><%= news.publisher %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
+            <p class="mb-1 inter" style="color:; font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<small>Testing a really long description to see how it looks in the context of the publication description of the home page of this website.</small>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.article_link, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
             <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %><!-- – <b style="color:black;"> -->
-              
             </b></p>
             <!-- <p class="small"><%#= news.date_published %></p> --> 
             <% if user_signed_in? %>

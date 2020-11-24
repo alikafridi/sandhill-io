@@ -86,6 +86,11 @@
   font-size:.6em;
 }
 
+.under {
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+}
+
 .ui-autocomplete {
     position: absolute;
     z-index: 1000;
