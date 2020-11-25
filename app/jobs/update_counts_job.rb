@@ -15,5 +15,15 @@ class UpdateCountsJob < ApplicationJob
     # Also update any descriptions for feeds that have been stored... (for authors / publications)
     # TODO
 
+
+    #3 - Remove duplicates
+    ns = News.all
+    ns.each do |n|
+      n2 = News.find_by(article_link: n.article_link)
+      if n2.id != n.id 
+        n2.destroy
+      end
+    end
+
   end
 end

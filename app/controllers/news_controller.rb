@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.where.not(date_published: nil).order("date_published DESC").page(params[:page]).per_page(25)
+    @news = News.order("created_at DESC").page(params[:page]).per_page(25)
   end
 
   # GET /news/1

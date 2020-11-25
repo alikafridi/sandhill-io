@@ -45,7 +45,7 @@ class RssFeedJob < ApplicationJob
           feed.items.each do |item|
             n = News.new
             n.title = fix(item.title)
-            n.article_link = item.link
+            n.article_link = sanitize_url2(item.link)
             n.publisher = f.name
             n.description = item.description # pot
             begin
@@ -55,12 +55,16 @@ class RssFeedJob < ApplicationJob
             rescue
             end
             
+            if n.date_published.blank?
+              n.date_published = Time.now
+            end
+
             n.feed_id = f.id
             n.publish = true
             #if f.
               #n.public = true
             #end
-            n.save!
+            n.save
           end
         rescue
         end
