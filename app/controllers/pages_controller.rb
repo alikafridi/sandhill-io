@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:uploads]
 
   def home
-    @categories = Category.all.arrange
-    @tags = Domain.tag_counts_on(:tags)
     @news = News.where.not(date_published: nil).where(publish: true).order("date_published DESC").page(params[:page]).per_page(25)
   end
 
@@ -16,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 4.days.ago).order("date_published DESC").page(params[:page]).per_page(50)
   end
 
   def uploads

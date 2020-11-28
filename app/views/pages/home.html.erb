@@ -33,12 +33,12 @@
       <% current_day = news.date_published.day %>
 
       <% if current_day != last_day %>
-        <p class="lead gotham-black" style="margin-top:50px;"><%= news.date_published.strftime("%A, %d %B, %Y") %></p>
+        <p class="lead " style="margin-top:50px;"><b><%= news.date_published.strftime("%A, %d %B, %Y") %></b></p>
         <% last_day = news.date_published.day %>
       <% end %> 
 
-      <div class="col-10 d-md-flex mb-4 mb-md-0">
-        <div class="d-flex">
+      <div class="col-10 d-md-flex mb-4 mb-md-0 color-hover">
+        <div class="d-flex ">
           <div style="padding-bottom:10px;">
             <p class="mb-1 inter" style="color:; font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<small>Testing a really long description to see how it looks in the context of the publication description of the home page of this website.</small>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.article_link, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
             <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %><!-- – <b style="color:black;"> -->
