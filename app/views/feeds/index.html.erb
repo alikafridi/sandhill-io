@@ -5,42 +5,46 @@
 
 <h1>Feeds <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Feed</a> </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Tags</th>
-      <th>Default Author</th>
-      <% if user_signed_in? %>
-        <th colspan="2"></th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= link_to feed.name, feed.follow_url %></td> 
-        <td><%= feed.description %></td>
-        <td><%= feed.tag_list %></td>
-        <td><%= feed.default_author %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-          <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <% if user_signed_in? %>
   <%= link_to 'New Feed', new_feed_path %>
 <% end %>
 
 </div>
 </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <% @feeds.each do |feed| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="card hover-effect inter">
+            <div class="card-body py-3 news">
+              <h5 class="inter"><%= link_to feed.name, feed.follow_url, target: :_blank %></h5>
+              <div class="mb-4">
+                <p class="inter" style="color:black;"><%= feed.description %></p>
+                <code><%= feed.tag_list %></code>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex align-items-center">
+                <span class="small">
+                  <% if !feed.default_author.blank? %>
+                  Primary Author(s): <%= feed.default_author %>
+                  <% end %>
+                <% if user_signed_in? %>
+                  <%= link_to 'Edit', edit_feed_path(feed) %>
+                   | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
  <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
