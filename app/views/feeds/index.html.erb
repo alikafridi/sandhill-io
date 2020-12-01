@@ -3,10 +3,16 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Feeds <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Feed</a> </h1>
+<h1>Feeds</h1>
+
+<a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Feed</a> 
+
+<a class="typeform-share button inter btn-secondary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest Modification to a Feed</a> 
+
+<a class="typeform-share button inter btn-danger btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Request Feed Removal</a> 
 
 <% if user_signed_in? %>
-  <%= link_to 'New Feed', new_feed_path %>
+  <br><br><%= link_to 'New Feed', new_feed_path %>
 <% end %>
 
 </div>
