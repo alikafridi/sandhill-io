@@ -34,12 +34,20 @@
           <% last_day = news.date_published.day %>
           <% end %> 
 
+<!-- "feed_description"
+    t.string "feed_url"
+--> 
+
           <div class="col-10 d-md-flex mb-4 mb-md-0 color-hover" style="padding-top:10px;">
             <div class="d-flex">
               
               <div style="padding-bottom:10px;">
 
-                <p class="mb-1 inter" style="font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<small>Testing a really long description to see how it looks in the context of the publication description of the home page of this website.</small>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.article_link, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p><!-- orig color: #7f8c8d; -->
+                <% if !news.feed_description.blank? %>
+                  <p class="mb-1 inter" style="font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
+                  <% else %>
+                    <p class="mb-1 inter" style="font-size:.8em"><span data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
+                  <% end %>
 
                 <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
               </p>
@@ -84,6 +92,11 @@
 
       <% l_count += 1 %>
       <% end %>
+
+      <div class="center" style="padding-top:30px;">
+        <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
+        
+      </div>
 
     </div>
   </div>

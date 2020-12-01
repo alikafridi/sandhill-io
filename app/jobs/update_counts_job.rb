@@ -25,5 +25,17 @@ class UpdateCountsJob < ApplicationJob
       end
     end
 
+    #4 - Update all feed urls & descriptions
+    ns = News.all
+    ns.each do |n|
+      begin 
+        f = Feed.find(n.feed_id)
+        n.feed_url = f.follow_url
+        n.feed_description = f.description
+        n.save
+      rescue
+      end
+    end
+
   end
 end

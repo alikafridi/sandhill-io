@@ -54,6 +54,12 @@ class RssFeedJob < ApplicationJob
               n.tag_list = f.tag_list
             rescue
             end
+
+            begin
+              n.feed_url = f.follow_url
+              n.feed_description = f.description
+            rescue
+            end
             
             if n.date_published.blank?
               n.date_published = Time.now
