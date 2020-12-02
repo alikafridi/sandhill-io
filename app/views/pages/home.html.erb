@@ -76,21 +76,21 @@
 
       <% l_count = 1 %>
       <% @top.each do |t| %>
-
-      <div class="list-group news">
-        <a href="<%= t.article_link %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center inter">
-          <div class="d-flex align-items-center">
-            <span class="mb-0 py-1" style="color:black;"><%= l_count %>. <b><%= sanitize(t.title) %></b> (<%= t.publisher %>)</span> 
-          </div>
-          <%= fa_icon "arrow-right", class: "d-block" %>
-        </a>
-      </div>
-
+      <% if l_count <= 5 %>
+        <div class="list-group news">
+          <a href="<%= t.article_link %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center inter">
+            <div class="d-flex align-items-center">
+              <span class="mb-0 py-1" style="color:black;"><%= l_count %>. <b><%= sanitize(t.title) %></b> (<%= t.publisher %>)</span> 
+            </div>
+            <%= fa_icon "arrow-right", class: "d-block" %>
+          </a>
+        </div>
+        <% end %>
       <% l_count += 1 %>
       <% end %>
 
       <div class="center" style="padding-top:30px;">
-        <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
+        <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/UUhstC7y" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
         
       </div>
 
@@ -101,6 +101,7 @@
 </div>
 </section>
 
+<script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
 
 <!-- 
 <section class="bg-white">
