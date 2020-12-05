@@ -5,7 +5,13 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.order("created_at DESC").page(params[:page]).per_page(25)
+    respond_to do |format|
+      format.html {@news = News.order("created_at DESC").page(params[:page]).per_page(25)}
+      format.csv { 
+        send_data News.to_csv
+      }
+      format.xls { send_data News.to_csv(col_sep: "\t")}
+    end
   end
 
   # GET /news/1

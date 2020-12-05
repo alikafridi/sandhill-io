@@ -1,6 +1,7 @@
 class News < ApplicationRecord
 	include ApplicationHelper
   extend FriendlyId
+  
   friendly_id :title, use: :slugged
 
 	validates :title, presence: true
@@ -17,4 +18,15 @@ class News < ApplicationRecord
 	before_create do
   	self.article_link = sanitize_url2(article_link)
 	end
+
+	def self.to_csv(options= {})
+  	CSV.generate(options) do |csv|
+  		csv << column_names
+
+  		all.each do |c|
+  			csv << c.attributes.values_at(*column_names)
+  		end
+		end
+  end
+
 end
