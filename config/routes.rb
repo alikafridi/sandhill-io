@@ -32,9 +32,10 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
   get 'terms' => 'pages#terms'
-  get 'contact' => 'pages#contact'
   get 'uploads' => 'pages#uploads'
   get 'talent' => 'pages#talent'
+
+  get 'emails' => 'pages#emails'
 
   get 'sitemap' => 'pages#sitemap'
   get 'for_providers' => 'pages#for_providers'

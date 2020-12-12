@@ -1,6 +1,6 @@
 <section class="bg-white">
 	<div class="container">
-		<h1>Test Email </h1>
+		<h1>Email Digest</h1>
 		<div class="row">
       <% last_day = -1 %>
 
@@ -17,7 +17,7 @@
         <div class="d-flex">
           <div style="padding-bottom:10px;">
             <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
-            	(<%= link_to news.publisher, news.article_link %><% if !news.author.blank? %> | <%= news.author %><% end %>)
+            	(<%= link_to news.publisher, news.feed_url %><% if !news.author.blank? %><% end %>)
           </p>
           
           </div>

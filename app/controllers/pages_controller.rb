@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @tags = Domain.tag_counts_on(:tags)
   end
 
-  def contact
+  def emails
     @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 4.days.ago).order("date_published DESC").page(params[:page]).per_page(50)
   end
 
