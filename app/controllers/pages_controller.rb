@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def emails
-    @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 7.days.ago).order("date_published DESC")
+    @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 8.days.ago).order("date_published DESC")
   end
 
   def uploads
