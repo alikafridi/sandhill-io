@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def emails
-    @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 4.days.ago).order("date_published DESC").page(params[:page]).per_page(50)
+    @news = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 7.days.ago).order("date_published DESC").page(params[:page]).per_page(50)
   end
 
   def uploads
@@ -26,7 +26,6 @@ class PagesController < ApplicationController
     if params[:update_flags]
       UpdateCountsJob.perform_later
     end
-
   end
 
   def for_providers
@@ -44,5 +43,4 @@ class PagesController < ApplicationController
 
   def talent
   end
-
 end
