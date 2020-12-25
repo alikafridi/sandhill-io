@@ -46,6 +46,23 @@
     <%= form.text_field :default_author, id: :feed_default_author %>
   </div>
 
+<% if !@categories.nil? %>
+  <div class="field">
+    <%= form.label :category_ids %>
+
+    <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>     
+    <% end %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

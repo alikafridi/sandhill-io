@@ -14,6 +14,8 @@ class CategoriesController < ApplicationController
     descendant_ids = @category.descendant_ids
     descendant_ids.append(@category.id)
 
+    # @news = 
+
     # @domains = Domain.joins(:categories).where(category_id: descendant_ids)
     @domains = Domain.joins(:categories).where(categories: {id: descendant_ids}).order(:alexa_rank)
     @domains = @domains.uniq

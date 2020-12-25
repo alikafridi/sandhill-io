@@ -12,4 +12,8 @@ class Category < ApplicationRecord
 
 	friendly_id :name, use: :slugged
 
+
+	has_and_belongs_to_many :feeds
+	has_and_belongs_to_many :news
+
 end

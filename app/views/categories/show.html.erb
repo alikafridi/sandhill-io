@@ -18,79 +18,6 @@
       </div>
 </section>
 
-<section class="bg-white">
-<div class="container">
-
-<p><strong>Descendants:</strong><br></p>
-
-<div class="row">
-    <% @category.descendants.each do |cat, child| %>
-      <div class="col-md-2 col-sm-3 col-6 d-flex center"> 
-        <a href="<%= category_path(cat) %>" class="card text-center hover-effect bg-dark" style="height: 60px; width:100%">
-            <div class="card-body d-flex flex-column align-items-center justify-content-center py-2 ">
-                <span class="h6 mb-2 text-white"><%= cat.name %></span>
-            </div>
-        </a>
-      </div>
-
-    <% end %>
-</div>
-
-
-
-
-	<h5>Affiliated Domains</h5>
-  <p><b>Domains Count: <%= @domains.count %></b></p>
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Domain</th>
-      <!--<th scope="col">Name</th>-->
-      <th scope="col">Description</th>
-<!--      <th scope="col">Logo</th>
-  <th scope="col">Year founded</th> -->
-      <th scope="col">Headquarters</th>
-<!--  <th scope="col">Cover photo</th>
-      <th scope="col">Countries</th>
-      <th scope="col">Status</th>-->
-      <th scope="col">Category</th>
-      <th scope="col">Tags</th>
-<!--  <th scope="col">Ancestry</th>
-      <th scope="col">Comm platform</th> -->
-      <th scope="col">Alexa</th>
-      <th scope="col">Funds raised</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-
-  <tbody>
-    <% @domains.each do |domain| %>
-      <tr>
-        <td><%= link_to domain.domain, domain %></td>
-        <!--<td><%= domain.name %></td>-->
-        <td><%= domain.description %></td>
-<!--        <td><%= domain.logo %></td>
-    <td><%= domain.year_founded %></td>-->
-        <td><%= domain.headquarters %></td>
-<!--     <td><%= domain.cover_photo %></td>
-        <td><%= domain.countries %></td>
-        <td><%= domain.status %></td> -->
-        <td><%= domain.category_ids %></td>
-        <td><%= domain.tag_list %></td>
-<!--        <td><%= domain.ancestry %></td>
-        <td><%= domain.comm_platform %></td> -->
-        <td><%= domain.alexa_rank %></td>
-        <td><%= domain.funds_raised %></td>
-        <td></td>
-        <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
-        <td><%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
 <div class="center">
 <% if user_signed_in? %>
   <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %> &bull; 
@@ -107,5 +34,3 @@
 
 <% end %>
 </div>
-
-</section>

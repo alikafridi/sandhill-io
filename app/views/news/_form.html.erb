@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :date_published %>
-    <%= form.text_field :date_published, id: :news_date_published %>
+    <%= form.date_select :date_published, id: :news_date_published %>
   </div>
 
   <div class="field">
@@ -75,6 +75,23 @@
     <%= form.label :publish %>
     <%= form.check_box :publish, id: :feed_publish %>
   </div>
+
+  <% if !@categories.nil? %>
+  <div class="field">
+    <%= form.label :category_ids %>
+
+    <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
+      <br>
+      <% d = c.object.depth %>
+      <% until d <= 0 do %>
+      &nbsp;&nbsp;
+      <% d = d - 1 %>
+      <% end %>
+        &nbsp;<%= c.check_box %>
+        <%= c.object.name %>     
+    <% end %>
+  </div>
+<% end %>
 
   <div class="actions">
     <%= form.submit %>

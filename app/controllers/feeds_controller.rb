@@ -5,21 +5,38 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all.order(:name)
+    @feeds = Feed.all.order(:name).page(params[:page]).per_page(50)
   end
 
   # GET /feeds/1
   # GET /feeds/1.json
   def show
+    @categories = Category.where(id: @feed.category_ids)
   end
 
   # GET /feeds/new
   def new
+    if params[:category]
+      begin 
+        @categories = Category.find(params[:category]).subtree
+      rescue
+        @categories = nil
+      end
+    end
+    @categories ||= Category.all
     @feed = Feed.new
   end
 
   # GET /feeds/1/edit
   def edit
+    if params[:category]
+      begin 
+        @categories = Category.find(params[:category]).subtree
+      rescue
+        @categories = nil
+      end
+    end
+    @categories ||= Category.all
   end
 
   # POST /feeds
@@ -70,7 +87,7 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:name, :url, :auto_public, :tag_list,  :follow_url, :description, :default_author)
+      params.require(:feed).permit(:name, :url, :auto_public, :tag_list,  :follow_url, :description, :default_author, category_ids:[])
     end
 end
 

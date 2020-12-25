@@ -26,6 +26,10 @@ class PagesController < ApplicationController
     if params[:update_flags]
       UpdateCountsJob.perform_later
     end
+
+    if params[:update_categories]
+      UpdateCategoriesJob.perform_later
+    end
   end
 
   def for_providers

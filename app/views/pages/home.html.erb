@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
   <section class="bg-white">
     <div class="container">
@@ -21,8 +21,8 @@
       <% end %>
 
       <div class="row">
-        <!-- Left Panel --> 
-        <div class="col-sm-9">
+        <!-- Left Panel -->
+        <div class="col-sm-9 order-xs-12">
           <% last_day = -1 %>
 
           <% @news.each do |news| %>
@@ -36,20 +36,20 @@
 
           <div class="col-10 d-md-flex mb-4 mb-md-0 color-hover" style="padding-top:10px;">
             <div class="d-flex">
-              
+
               <div style="padding-bottom:10px;">
 
                 <% if !news.feed_description.blank? %>
-                  <p class="mb-1 inter" style="font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
-                  <% else %>
-                    <p class="mb-1 inter" style="font-size:.8em"><span data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
-                  <% end %>
+                <p class="mb-1 inter" style="font-size:.8em"><span class="under" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
+                <% else %>
+                <p class="mb-1 inter" style="font-size:.8em"><span data-toggle="tooltip" data-placement="top" data-html="true" title="<%= news.feed_description%>"><%= news.publisher %> <%= link_to (fa_icon "external-link"), news.feed_url, target: :_blank %></span> <% if !news.author.blank? %> | <%= news.author %> <% end %></p>
+                <% end %>
 
                 <p class="mb-1 news" style="font-size:1.15em;"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
-              </p>
+                </p>
                 
                 <% if user_signed_in? %>
-                <%= link_to 'Edit', edit_news_path(news) %> | <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Show', news %> | <%= link_to 'Edit', edit_news_path(news) %> | <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
                 <!-- <hr>  --> 
               </div>
@@ -65,43 +65,43 @@
         </div>
 
         <!-- Right Panel --> 
-        <div class="col-sm-3 sidebar inter">
-    <!-- Submit a Post
-    Suggest a Feed --> 
-    
-    <!-- <p class="inter" style="color:red"><i>To be implemented.</i></p> -->    
-    <div style="margin-bottom:10px;">
-      <h5 class="mb-1" style="color:black;">Subscribe to the weekly digest</h5>
-      <%= render "layouts/newsletter" %>
-    </div>
+        <div class="col-sm-3 sidebar inter order-xs-1">
 
-      <h5 class="mb-1" style="color:black;">Top Posts This Week</h5>
+          <div class="mt-4 mt-xs-4" style="margin-bottom:10px; ">
+            <h5 class="mb-1 inter" style="color:black;">Subscribe to the weekly investor digest</h5>
+            <%= render "layouts/newsletter" %>
+          </div>
 
-      <% l_count = 1 %>
-      <% @top.each do |t| %>
-      <% if l_count <= 5 %>
-        <div class="list-group news">
-          <a href="<%= t.article_link %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center inter">
-            <div class="d-flex align-items-center">
-              <span class="mb-0 py-1" style="color:black;"><%= l_count %>. <b><%= sanitize(t.title) %></b> (<%= t.publisher %>)</span> 
-            </div>
-            <%= fa_icon "arrow-right", class: "d-block" %>
-          </a>
+          <div class="desktop d-none d-sm-block">
+
+          <h5 class="mb-1" style="color:black;">Top Posts This Week</h5>
+
+          <% l_count = 1 %>
+          <% @top.each do |t| %>
+          <% if l_count <= 5 %>
+          <div class="list-group news">
+            <a href="<%= t.article_link %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center inter">
+              <div class="d-flex align-items-center">
+                <span class="mb-0 py-1" style="color:black;"><%= l_count %>. <b><%= sanitize(t.title) %></b> (<%= t.publisher %>)</span> 
+              </div>
+              <%= fa_icon "arrow-right", class: "d-block" %>
+            </a>
+          </div>
+          <% end %>
+          <% l_count += 1 %>
+          <% end %>
+
+          <div class="center" style="padding-top:30px;">
+            <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/UUhstC7y" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
+          </div>
+
         </div>
-        <% end %>
-      <% l_count += 1 %>
-      <% end %>
 
-      <div class="center" style="padding-top:30px;">
-        <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/UUhstC7y" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
-        
+        </div>
       </div>
-
     </div>
-  </div>
-</div>
 
-</div>
+  </div>
 </section>
 
 <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>

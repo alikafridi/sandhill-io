@@ -21,11 +21,27 @@ class NewsController < ApplicationController
 
   # GET /news/new
   def new
+    if params[:category]
+      begin 
+        @categories = Category.find(params[:category]).subtree
+      rescue
+        @categories = nil
+      end
+    end
+    @categories ||= Category.all
     @news = News.new
   end
 
   # GET /news/1/edit
   def edit
+    if params[:category]
+      begin 
+        @categories = Category.find(params[:category]).subtree
+      rescue
+        @categories = nil
+      end
+    end
+    @categories ||= Category.all
   end
 
   # POST /news
@@ -76,6 +92,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:title, :article_link, :description, :upvotes, :tags, :publisher, :author, :publish, :feed_id, :publisher_description, :feed_url, :feed_description)
+      params.require(:news).permit(:title, :article_link, :description, :upvotes, :tags, :publisher, :author, :publish, :feed_id, :publisher_description, :feed_url, :feed_description, :date_published, category_ids:[])
     end
 end

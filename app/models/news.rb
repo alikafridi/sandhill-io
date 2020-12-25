@@ -10,6 +10,7 @@ class News < ApplicationRecord
 	acts_as_taggable_on :tags
 
 	belongs_to :feed, optional: true
+	has_and_belongs_to_many :categories
 
 	before_save do
   	self.article_link = sanitize_url2(article_link)

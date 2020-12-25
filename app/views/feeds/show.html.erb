@@ -36,5 +36,11 @@
   <%= @feed.follow_url %>
 </p>
 
+
+<p>
+  <strong>Categories:</strong>
+  <%= @feed.category_ids %>
+</p>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>

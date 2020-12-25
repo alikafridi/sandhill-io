@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201201044523) do
+ActiveRecord::Schema.define(version: 20201224231300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,11 +88,25 @@ ActiveRecord::Schema.define(version: 20201201044523) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
+  create_table "categories_feeds", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "feed_id", null: false
+    t.index ["category_id", "feed_id"], name: "index_categories_feeds_on_category_id_and_feed_id"
+    t.index ["feed_id", "category_id"], name: "index_categories_feeds_on_feed_id_and_category_id"
+  end
+
   create_table "categories_mobile_apps", id: false, force: :cascade do |t|
     t.bigint "mobile_app_id", null: false
     t.bigint "category_id", null: false
     t.index ["category_id", "mobile_app_id"], name: "index_categories_mobile_apps_on_category_id_and_mobile_app_id"
     t.index ["mobile_app_id", "category_id"], name: "index_categories_mobile_apps_on_mobile_app_id_and_category_id"
+  end
+
+  create_table "categories_news", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "news_id", null: false
+    t.index ["category_id", "news_id"], name: "index_categories_news_on_category_id_and_news_id"
+    t.index ["news_id", "category_id"], name: "index_categories_news_on_news_id_and_category_id"
   end
 
   create_table "companies", force: :cascade do |t|
