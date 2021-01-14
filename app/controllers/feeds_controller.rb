@@ -5,7 +5,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all.order(:name).page(params[:page]).per_page(50)
+    @feeds = Feed.all.order(:name).page(params[:page]).per_page(40)
   end
 
   # GET /feeds/1
