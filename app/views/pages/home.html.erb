@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 offset-md-1 center height-10 height-md-10">
-        <h2 class="display-5 animate__animated animate__fadeIn text-whit">
+        <h2 class="display-5 animate__animated animate__fadeInUp text-whit">
           SandHill.io aggregates theses, insights, and market analyses from <span style="color:red">200+</span> startup investors &amp; operators</h2>
         </div>
         <div class="col-md-5 col-xl-4">
@@ -10,6 +10,16 @@
       </div>
     </div>
   </section>
+
+  <script>
+if (window.convertflow == undefined) {
+var script = document.createElement('script'); 
+script.async = true;
+script.src = "https://js.convertflow.co/production/websites/21725.js"; 
+document.body.appendChild(script); 
+};
+</script>
+<div class="cf-cta-snippet cta77459" website-id="21725" cta-id="77459"></div>
 
   <section class="bg-white">
     <div class="container">
@@ -67,13 +77,6 @@
         <!-- Right Panel --> 
         <div class="col-sm-3 sidebar inter order-xs-1">
 
-          <div class="mt-4 mt-xs-4" style="margin-bottom:10px; ">
-            <h5 class="mb-1 inter" style="color:black;">Subscribe to the weekly investor digest</h5>
-            <%= render "layouts/newsletter" %>
-          </div>
-
-          <div class="desktop d-none d-sm-block">
-
           <h5 class="mb-1" style="color:black;">Top Posts This Week</h5>
 
           <% l_count = 1 %>
@@ -93,6 +96,12 @@
 
           <div class="center" style="padding-top:30px;">
             <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/UUhstC7y" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 
+          </div>
+
+          <div class="desktop d-none d-sm-block">
+          <div class="mt-4 mt-xs-4" style="margin-bottom:10px; ">
+            <h5 class="mb-1 inter" style="color:black;">Subscribe to the weekly investor digest</h5>
+            <%= render "layouts/newsletter" %>
           </div>
 
         </div>
