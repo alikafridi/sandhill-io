@@ -38,44 +38,50 @@ class RssFeedJob < ApplicationJob
 
     feeds.each do |f|
 
-      open(f.url) do |rss|
-        begin
-          feed = RSS::Parser.parse(rss)
-          puts "Title: #{feed.channel.title}"
-          feed.items.each do |item|
-            n = News.new
-            n.title = fix(item.title)
-            n.article_link = sanitize_url2(item.link)
-            n.publisher = f.name
-            n.description = item.description # pot
-            begin
-              n.date_published = item.pubDate # pot
-              n.author = f.default_author
-              n.tag_list = f.tag_list
-            rescue
-            end
+      begin
+                                    open(f.url) do |rss|
+                                      begin
+                                        feed = RSS::Parser.parse(rss)
+                                        puts "Title: #{feed.channel.title}"
+                                        feed.items.each do |item|
+                                          begin
+                                            n = News.new
+                                            n.title = fix(item.title)
+                                            n.article_link = sanitize_url2(item.link)
+                                            n.publisher = f.name
+                                            n.description = item.description # pot
+                                            begin
+                                              n.date_published = item.pubDate # pot
+                                              n.author = f.default_author
+                                              n.tag_list = f.tag_list
+                                            rescue
+                                            end
 
-            begin
-              n.feed_url = f.follow_url
-              n.feed_description = f.description
-            rescue
-            end
-            
-            if n.date_published.blank?
-              n.date_published = Time.now
-            end
+                                            begin
+                                              n.feed_url = f.follow_url
+                                              n.feed_description = f.description
+                                            rescue
+                                            end
+                                            
+                                            if n.date_published.blank?
+                                              n.date_published = Time.now
+                                            end
 
-            n.feed_id = f.id
-            n.publish = true
-            #if f.
-              #n.public = true
-            #end
-            n.save
-          end
-        rescue
-        end
+                                            n.feed_id = f.id
+                                            n.publish = true
+                                            #if f.
+                                              #n.public = true
+                                            #end
+                                            n.save
+                                          rescue
+                                          end
+                                        end
+                                      rescue
+                                      end
+                                    end
+      rescue
       end
-      
+
     end
   end
 end
