@@ -46,6 +46,26 @@
     <%= form.text_field :default_author, id: :feed_default_author %>
   </div>
 
+  <div class="field">
+    <%= form.label :primary_role %>
+    <%= form.text_field :primary_role, id: :feed_primary_role %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email_descript %>
+    <%= form.text_field :email_descript, id: :feed_email_descript %>
+  </div>
+
+    <div class="field">
+    <%= form.label :firm_name %>
+    <%= form.text_field :firm_name, id: :feed_firm_name %>
+  </div>
+
+    <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :feed_address %>
+  </div>
+
 <% if !@categories.nil? %>
   <div class="field">
     <%= form.label :category_ids %>

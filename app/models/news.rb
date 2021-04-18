@@ -30,4 +30,6 @@ class News < ApplicationRecord
 		end
   end
 
+  searchkick
+
 end

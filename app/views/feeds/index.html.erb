@@ -1,11 +1,11 @@
 <section class="bg-white">
-<div class="container">
+  <div class="container">
 
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
+    <h1>Feeds</h1>
 
-<a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Feed</a> 
+    <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Feed</a> 
 <!-- 
 <a class="typeform-share button inter btn-secondary btn" href="https://form.typeform.com/to/Nwe2DSOx" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest Modification to a Feed</a> 
 
@@ -13,52 +13,77 @@
 -->
 
 <% if user_signed_in? %>
-  <br><br><%= link_to 'New Feed', new_feed_path %>
+<br><br><%= link_to 'New Feed', new_feed_path %>
 <% end %>
 
 </div>
 </section>
 
-  <section>
-    <div class="container">
-      <div class="row">
-        <% @feeds.each do |feed| %>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-          <div class="card hover-effect inter">
-            <div class="card-body py-3 news">
-              <h5 class="inter"><%= link_to feed.name, feed.follow_url, target: :_blank %></h5>
-              <div class="mb-4">
-                <p class="inter" style="color:black;"><%= feed.description %></p>
-                <code><%= feed.tag_list %></code>
+<section>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-sm-3"> --> 
+      <form>
+      <div class="form-group">
+        <%= form_tag feeds_path, method: :get do %>
+          <%= text_field_tag :q, nil, placeholder: "Search", class: "form-control" %>
+        <% end %>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div></form>
+
+
+      </div>
+<!--     
+      <div class="col-sm-9"> -->
+        <div class="row">
+          <% @feeds.each do |feed| %>
+          <div class="col-xs-6 col-sm-6 col-md-4">
+            <div class="card hover-effect inter">
+              <div class="card-body py-3 news">
+                <h5 class="inter"><%= link_to feed.name, feed.follow_url, target: :_blank %></h5>
+                <div class="mb-4">
+                  <p class="inter" style="color:black;"><%= feed.description %></p>
+                  <code><%= feed.tag_list %></code>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex align-items-center">
+                  <span class="small">
+                    <% if !feed.default_author.blank? %>
+                    Primary Author(s): <%= feed.default_author %>
+                    <% end %>
+                    <% if user_signed_in? %>
+                    <%= link_to 'Edit', edit_feed_path(feed) %>
+                    | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %></span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-footer">
-              <div class="d-flex align-items-center">
-                <span class="small">
-                  <% if !feed.default_author.blank? %>
-                  Primary Author(s): <%= feed.default_author %>
-                  <% end %>
-                <% if user_signed_in? %>
-                  <%= link_to 'Edit', edit_feed_path(feed) %>
-                   | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %></span>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
-        <% end %>
+
+        <div class="container">
+          <div class="center">
+            <%= will_paginate @news, previous_label: h("<"), next_label: h(">") %>
+          </div>
+        </div>
+      <!-- </div>-->
+
+<% if user_signed_in? %>
+      <div class="row">
+        <h5>Import Feeds</h5><br>        
+          <%= form_tag import_feeds_path, multipart: true do %>
+            <%= file_field_tag :file %><br>
+            <%= submit_tag "Import" %>
+          <% end %>
       </div>
+<% end %>
+
     </div>
-
-    <div class="container">
-      <div class="center">
-      <%= will_paginate @news, previous_label: h("<"), next_label: h(">") %>
-      </div>
-    </div>
-
-
   </div>
 </section>
 
 
- <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+<script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>

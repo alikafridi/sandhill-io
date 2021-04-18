@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :feeds
+  
+  resources :feeds do 
+    collection { post :import }
+  end
+
   resources :locations
   resources :app_data
   resources :mobile_apps

@@ -1,24 +1,42 @@
+<section class="bg-white">
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+<h3><%= @feed.name %></h3>
+
 <p>
-  <strong>Name:</strong>
-  <%= @feed.name %>
+  <strong>Rss Url:</strong>
+  <%= @feed.url %>
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @feed.url %>
+  <strong>Home Page (Follow) URL:</strong>
+  <%= @feed.follow_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @feed.description %>
+</p>
+
+<p>
+  <strong>Email Description:</strong>
+  <%= @feed.email_descript %>
+</p>
+
+<p>
+  <strong>Author Name:</strong>
+  <%= @feed.default_author %>
+</p>
+
+<p>
+  <strong>Firm Name:</strong>
+  <%= @feed.firm_name %>
 </p>
 
 <p>
   <strong>Auto-public:</strong>
   <%= @feed.auto_public %>
-</p>
-
-
-<p>
-  <strong>Description:</strong>
-  <%= @feed.description %>
 </p>
 
 <p>
@@ -27,20 +45,22 @@
 </p>
 
 <p>
-  <strong>Default Author:</strong>
-  <%= @feed.default_author %>
-</p>
-
-<p>
-  <strong>Follow URL:</strong>
-  <%= @feed.follow_url %>
-</p>
-
-
-<p>
   <strong>Categories:</strong>
   <%= @feed.category_ids %>
 </p>
 
+<p>
+  <strong>Primary Role:</strong>
+  <%= @feed.primary_role %>
+</p>
+
+<p>
+  <strong>Address + Location:</strong>
+  <%= @feed.address %> (<%= @feed.latitude %>, <%= @feed.longitude %>)
+</p>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
+
+</div>
+</section>

@@ -5,7 +5,15 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all.order(:name).page(params[:page]).per_page(40)
+    respond_to do |format|
+      format.html {
+        query = params[:q].presence || "*"
+        @feeds = Feed.search(query)
+      }
+      format.csv { 
+        send_data Feed.to_csv
+      }
+    end
   end
 
   # GET /feeds/1
@@ -79,6 +87,11 @@ class FeedsController < ApplicationController
     end
   end
 
+  def import
+    Feed.import(params[:file])
+    redirect_to feeds_url, notice: "Feeds imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
@@ -87,7 +100,7 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:name, :url, :auto_public, :tag_list,  :follow_url, :description, :default_author, category_ids:[])
+      params.require(:feed).permit(:name, :url, :auto_public, :primary_role, :email_descript, :firm_name, :tag_list,  :follow_url, :description, :default_author, :address, category_ids:[])
     end
 end
 

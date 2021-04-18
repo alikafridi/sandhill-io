@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201224231300) do
+ActiveRecord::Schema.define(version: 20210417220647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,12 @@ ActiveRecord::Schema.define(version: 20201224231300) do
     t.string "tags"
     t.string "description"
     t.string "default_author"
+    t.string "primary_role"
+    t.string "email_descript"
+    t.string "firm_name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

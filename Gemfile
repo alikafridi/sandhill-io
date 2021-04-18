@@ -38,7 +38,6 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'activeadmin'
-
 gem 'figaro'
 
 gem 'geocoder'
