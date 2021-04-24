@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
     respond_to do |format|
       format.html {
         query = params[:q].presence || "*"
-        @feeds = Feed.search(query)
+        @feeds = Feed.search(query, order: :name, page: params[:page], per_page: 25)
       }
       format.csv { 
         send_data Feed.to_csv
