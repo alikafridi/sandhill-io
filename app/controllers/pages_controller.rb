@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
 
   def about
+    @news = News.where.not(date_published: nil).where(publish: true).order("date_published DESC").page(params[:page]).per_page(25)
+    @top = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 8.days.ago).where("upvotes >= ?", 0).order("upvotes DESC")
   end
 
   def terms
