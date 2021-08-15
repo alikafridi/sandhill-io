@@ -59,6 +59,16 @@
   <%= @feed.address %> (<%= @feed.latitude %>, <%= @feed.longitude %>)
 </p>
 
+<p>
+  <strong>Votes:</strong>
+  <%= @feed.votes %>
+</p>
+
+<p>
+  <strong>Non Core:</strong>
+  <%= @feed.non_investor %>
+</p>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
 

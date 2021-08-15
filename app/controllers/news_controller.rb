@@ -6,7 +6,8 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     respond_to do |format|
-      format.html {@news = News.order("created_at DESC").page(params[:page]).per_page(25)}
+      format.html {@news = News.where.not(date_published: nil).where(publish: true).order("date_published DESC").page(params[:page]).per_page(25)
+      @top = News.where.not(date_published: nil).where(publish: true).where("date_published >= ?", 8.days.ago).where("upvotes >= ?", 0).order("upvotes DESC")}
       format.csv { 
         send_data News.to_csv
       }
@@ -92,6 +93,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:title, :article_link, :description, :upvotes, :tags, :publisher, :author, :publish, :feed_id, :publisher_description, :feed_url, :feed_description, :date_published, category_ids:[])
+      params.require(:news).permit(:title, :article_link, :description, :upvotes, :tags, :publisher, :author, :publish, :feed_id, :publisher_description, :feed_url, :feed_description, :date_published, :non_core, category_ids:[])
     end
 end

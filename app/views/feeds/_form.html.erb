@@ -66,9 +66,23 @@
     <%= form.text_field :address, id: :feed_address %>
   </div>
 
+<div class="field">
+    <%= form.label :votes %>
+    <%= form.text_field :votes, id: :feed_votes %>
+  </div>
+
+<div class="field">
+  <i><small>Check the box below if the writer is not an investment firm or individual investor. Their posts will still be shown in the main feed but will be separately shown on emails tab.</small></i><br>
+    Non Core
+    <% form.label :non_investor %>
+    <%= form.check_box :non_investor, id: :feed_non_investor %>
+  </div>
+
+  
 <% if !@categories.nil? %>
   <div class="field">
-    <%= form.label :category_ids %>
+    <b>Associated Categories</b>
+    <% form.label :category_ids %>
 
     <%= form.collection_check_boxes :category_ids, @categories.order(:ordering), :id, :name do |c| %>
       <br>

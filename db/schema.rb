@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210417220647) do
+ActiveRecord::Schema.define(version: 20210815023828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -249,6 +249,8 @@ ActiveRecord::Schema.define(version: 20210417220647) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.integer "votes"
+    t.boolean "non_investor"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -315,6 +317,7 @@ ActiveRecord::Schema.define(version: 20210417220647) do
     t.string "slug"
     t.string "feed_description"
     t.string "feed_url"
+    t.boolean "non_core"
     t.index ["slug"], name: "index_news_on_slug", unique: true
   end
 

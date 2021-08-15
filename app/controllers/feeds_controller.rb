@@ -100,7 +100,7 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:name, :url, :auto_public, :primary_role, :email_descript, :firm_name, :tag_list,  :follow_url, :description, :default_author, :address, category_ids:[])
+      params.require(:feed).permit(:name, :url, :auto_public, :primary_role, :votes, :email_descript, :firm_name, :tag_list,  :follow_url, :description, :default_author, :address, :non_investor, category_ids:[])
     end
 end
 

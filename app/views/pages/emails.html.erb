@@ -1,36 +1,62 @@
 <section class="bg-white">
 	<div class="container">
+
 		<h1>Email Digest</h1>
     <p>Posts (Last 8 Days): <%= @news.count %>
 
 		<div class="row">
-      <% last_day = -1 %>
+      <div class="col-sm-6">
+        <h4>Core Feeds</h4>
+        <% last_day = -1 %>
 
-      <% @news.each do |news| %>
+        <% @news.each do |news| %>
+          <% current_day = news.date_published.day %>
+          <% if current_day != last_day %>
+            <p class="lead" style="margin-top:50px;"><b><%= news.date_published.strftime("%A, %d %B, %Y") %></b></p>
+            <% last_day = news.date_published.day %>
+          <% end %> 
 
-      <% current_day = news.date_published.day %>
-
-      <% if current_day != last_day %>
-        <p class="lead" style="margin-top:50px;"><b><%= news.date_published.strftime("%A, %d %B, %Y") %></b></p>
-        <% last_day = news.date_published.day %>
-      <% end %> 
-
-      <div class="col-10 d-md-flex mb-4 mb-md-0">
-        <div class="d-flex">
-          <div style="padding-bottom:10px;">
-            <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
-            	(<%= link_to news.publisher, news.feed_url %><% if !news.author.blank? %><% end %>)
-          </p>
-          
-          </div>
-        </div>
+          <% if !news.non_core %>
+            <div class="col-10 d-md-flex mb-4 mb-md-0">
+              <div class="d-flex">
+                <div style="padding-bottom:10px;">
+                  <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
+                  	(<%= news.publisher_description %>)
+                </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
-    
+
+      <div class="col-sm-6">
+        <h4>Non-Core Feeds</h4>
+
+        <% last_day = -1 %>
+
+        <% @news.each do |news| %>
+          <% current_day = news.date_published.day %>
+          <% if current_day != last_day %>
+            <p class="lead" style="margin-top:50px;"><b><%= news.date_published.strftime("%A, %d %B, %Y") %></b></p>
+            <% last_day = news.date_published.day %>
+          <% end %> 
+
+          <% if news.non_core %>
+            <div class="col-10 d-md-flex mb-4 mb-md-0">
+              <div class="d-flex">
+                <div style="padding-bottom:10px;">
+                  <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
+                    (<%= news.publisher_description %>)
+                </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        
+      </div>
+
     </div>
 	</div>
 </section>
-<!-- 
-<section class="center bg-white">
-	<script async data-uid="1341e4879e" src="https://shiftsandpatterns.ck.page/1341e4879e/index.js"></script>
-</section>-->

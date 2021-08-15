@@ -72,9 +72,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :non_core %>
+    <%= form.check_box :non_core, id: :feed_non_core %>
+  </div>
+
+  <div class="field">
     <%= form.label :publish %>
     <%= form.check_box :publish, id: :feed_publish %>
   </div>
+
+
 
   <% if !@categories.nil? %>
   <div class="field">
