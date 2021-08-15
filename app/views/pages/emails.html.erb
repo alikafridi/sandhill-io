@@ -21,7 +21,7 @@
               <div class="d-flex">
                 <div style="padding-bottom:10px;">
                   <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
-                  	(<%= news.publisher_description %>)
+                  	(<% if !news.publisher_description.blank? %><%= news.publisher_description %><% else %><%= news.publisher %><%end %>)
                 </p>
                 </div>
               </div>
@@ -47,7 +47,7 @@
               <div class="d-flex">
                 <div style="padding-bottom:10px;">
                   <p class="mb-1 news"><%= link_to sanitize(news.title), news.article_link, target: :_blank %>
-                    (<%= news.publisher_description %>)
+                    (<% if !news.publisher_description.blank? %><%= news.publisher_description %><% else %><%= news.publisher %><%end %>)
                 </p>
                 </div>
               </div>
