@@ -22,18 +22,17 @@ class UpdateCountsJob < ApplicationJob
       end
     end
 
-    #3 - Remove duplicates
+    #3 - Remove duplicates ; Update all feed urls & descriptions
+    # Update all news with the latest vote counts based on parent feed's upvotes and make each news non-core that is from a feed that is non-investor
     ns = News.all
     ns.each do |n|
+      # Remove duplicates
       n2 = News.find_by(article_link: n.article_link)
       if n2.id != n.id 
         n2.destroy
       end
-    end
 
-    #4 - Update all feed urls & descriptions
-    ns = News.all
-    ns.each do |n|
+      # Update feed urls + descriptions
       begin 
         f = Feed.find(n.feed_id)
         n.feed_url = f.follow_url
@@ -42,11 +41,8 @@ class UpdateCountsJob < ApplicationJob
         n.save
       rescue
       end
-    end
 
-    #5 - Update all news with the latest vote counts based on parent feed's upvotes and make each news non-core that is from a feed that is non-investor
-    ns = News.all
-    ns.each do |n|
+      # Votes + Non Core
       begin
         f = Feed.find(n.feed_id)
         if n.upvotes.nil?
@@ -56,14 +52,12 @@ class UpdateCountsJob < ApplicationJob
         n.save
       rescue
       end
-    end
 
-    # 6 - Go through all news and if description is empty, feed in description of it's feed (if there is a feed)
+    end
+    
+    # 4 - Go through all news and if description is empty, feed in description of it's feed (if there is a feed)
     # Also update any descriptions for feeds that have been stored... (for authors / publications)
     # TODO
-
-
-
 
   end
 end
