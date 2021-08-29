@@ -1,42 +1,14 @@
-<section class="row no-gutters p-0" style="background-color:#15141A;">
-  <div class="col-md-4 col-xl-5 d-flex flex-column order-md-2 bg-white">
+<section class="row no-gutters p-0">
+  <div class="col-md-5 col-xl-6 d-flex flex-column order-md-2 order-xs-2 bg-white">
     <%= image_tag "vc.png", class: "flex-grow-1" %>
   </div>
-  <div class="col-md-8 col-xl-7 order-md-1 height-40 height-md-40">
+  <div class="col-md-7 col-xl-6 order-md-1 height-40 order-xs-1 height-md-30">
     <div class="row w-100 no-gutters justify-content-center py-4">
       <div class="col-md-10 col-lg-9 col-xl-8 p-3 animate__animated animate__fadeInLeft">
         
-        <h3 class="display-5 text-white">Follow the latest market opportunities &amp; insights from 500+ VCs and analysts</h3>
-        <!-- <p style="font-size:1.2em;">Over <b>500</b> VCs and industry analysts actively write about opportunities in the startup world. We round-up and highlight their work.</p>--> 
-        <a href="#" class="btn btn-md btn-danger">Subscribe</a>
-
-
-  <h6 class="text-white center" style="margin-top:50px;">Leveraged by investors &amp; execs at hundreds of firms</h6>
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <img class="icon icon-sm text-dark opacity-50" src="assets/img/logo-amazon.svg"
-        alt="Amazon">
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <img class="icon icon-sm text-dark opacity-50" src="assets/img/logo-volkswagen.svg"
-        alt="Volkswagen">
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <img class="icon icon-sm text-dark opacity-50" src="assets/img/logo-coca-cola.svg"
-        alt="Coca Cola">
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <img class="icon icon-sm text-dark opacity-50" src="assets/img/logo-netflix.svg"
-        alt="Netflix">
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <img class="icon icon-sm text-dark opacity-50" src="assets/img/logo-apple.svg"
-        alt="Apple">
-      </div>
-    </div>
-  </div>
-
+        <h2 class="display-5">The latest <span style="color:red">theses</span> &amp; <span style="color:red">analyses</span> from top VCs and analysts</h2>
+        <p style="font-size:1.2em;">Over <b>500</b> VCs and industry analysts actively write about opportunities in the startup world. We round-up and highlight their work.</p>
+        <!--  <a href="#" class="btn btn-md btn-primary">Read the Latest</a>-->
       </div>
     </div>
   </div>
@@ -55,6 +27,7 @@
     </div>
   </section>
 -->
+
   <script>
 if (window.convertflow == undefined) {
 var script = document.createElement('script'); 
@@ -146,7 +119,7 @@ document.body.appendChild(script);
           <div class="mt-4 mt-xs-4" style="margin-bottom:10px; ">
             <h5 class="mb-1 inter" style="color:black;">Subscribe to the weekly investor digest</h5>
             <%= render "layouts/newsletter" %>
-            <p class="small">Previous digests can be <%= link_to "viewed here", "https://archive.aweber.com/awlist5874404", target: :_blank %></p>
+            <p class="small">Previous digests can be <%= link_to "viewed here", "https://newsletter.sandhill.io", target: :_blank %></p>
           </div>
 
         </div>
