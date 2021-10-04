@@ -10,6 +10,11 @@
 @import "pages";
 @import "news";
 
+.cont2{
+    overflow:hidden;
+    display:block;
+}
+
 @font-face {
    font-family: 'Circular-Std-Bold';
    src: url('/fonts/Circular-Std-Bold.otf')
