@@ -1,60 +1,47 @@
-<section class="row no-gutters p-0" style="background-color:white;">
-  <div class="col-md-4 col-xl-5 d-flex flex-column order-md-2 bg-white">
-    <%#= image_tag "abc.gif", class: "flex-grow-1" %>
-    <%= image_tag "cards.png", class: "flex-grow-1" %>
+<section class="row no-gutters p-0" style="background-color:#15141A;">
+  <div class="col-md-5 col-xl-5 d-flex flex-column order-md-2 bg-white">
+    <%#= image_tag "cards.png", class: "flex-grow-1" %>    
+     <%= video_tag "anim1.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, style: "min-height:100%;" %>
   </div>
-  <div class="col-md-8 col-xl-7 order-md-1 order-first height-50 height-md-50" style="max-height: 400px;">
+  <div class="col-md-7 col-xl-7 order-md-1 order-first height-60 height-md-60 height-xl-50" style="max-height: 400px;">
     <div class="row w-100 no-gutters justify-content-center py-4">
       <div class="col-md-10 col-lg-9 col-xl-8 p-3 animate__animated animate__fadeInLeft">
-        
-        <h3 class="display-5">Follow the latest <span style="color:#D10200;">theses</span> &amp; <span style="color:#D10200;">analyses</span> from 600+ VCs and analysts</h3>
-        <!-- <p style="font-size:1.2em;">Over <b>500</b> VCs and industry analysts actively write about opportunities in the startup world. We round-up and highlight their work.</p>--> 
-        <!-- <a href="#" class="btn btn-md btn-danger">Subscribe</a> -->
+        <h3 class="display-5 text-white">Follow the latest <span style="color:#FF3333;">theses</span> &amp; <span style="color:#FF3333;">analyses</span> from 600+ VCs and analysts</h3>
 
-      <p class="">Subscribe to get the <a href="https://newsletter.sandhill.io" style="color:black;" target="_blank">weekly digest</a> (sent on Sundays)</p>
+<% if params[:subscribed] %> 
 
-      <iframe src="https://newsletter.sandhill.io/embed" allowtransparency="true" width="330" height="100" style="background-color: transparent;" frameborder="0" scrolling="no"></iframe>
+  <h6 class="text-white">Check your email to confirm your subscription!</h6>
 
-<!-- 
-  <h6 class="text-white center" style="margin-top:50px;">Leveraged by investors &amp; execs at hundreds of firms</h6>
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <%= image_tag "firm_logos/usv-white.png", class: "icon icon-sm text-dark opacity-80" %>
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <%= image_tag "firm_logos/lux-white.png", class: "icon icon-sm text-dark opacity-80" %>
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <%= image_tag "firm_logos/insight-white.png", class: "icon icon-sm text-dark opacity-80" %>
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <%= image_tag "firm_logos/bloomberg-beta-white.png", class: "icon icon-sm text-dark opacity-80" %>
-      </div>
-      <div class="col-6 col-lg col-md-2 mb-4 mb-sm-0 d-flex justify-content-center">
-        <%= image_tag "firm_logos/maveron-white.png", class: "icon icon-sm text-dark opacity-80" %>
-      </div>
-    </div>
+<% else %> 
+
+<form method="post" action="https://www.aweber.com/scripts/addlead.pl">
+<div class="form form-inline">
+<input type="hidden" name="listname" value="awlist5874404" />
+<input type="hidden" name="redirect" value="https://sandhill.io?subscribed=true" />
+<input type="hidden" name="meta_adtracking" value="custom form" />
+<input type="hidden" name="meta_message" value="1" /> 
+<input type="hidden" name="meta_required" value="email" /> 
+<input type="hidden" name="meta_forward_vars" value="1" /> 
+
+  <input type="text" name="email" value="" placeholder="Email address" class="form-control mb-2" style="border-radius: 0.375rem 0 0 0.375rem; font-size:1rem; height:50px;" />
+
+  <div class="input-group-append">
+    <input type="submit" name="submit" value="Subscribe" class="btn btn-danger mb-2" style="height:50px;" /> 
   </div>
---> 
+</div>
+
+</form>
+
+<% end %> 
+
+      <p class="text-white">Subscribe to get the weekly digest every Sunday</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- <section class="bg-dar"> <!-- style="background-image: linear-gradient(to right, #27ae60, #2ecc71);">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 offset-md-1 center height-10 height-md-10">
-        <h2 class="display-5 animate__animated animate__fadeInUp text-whit">
-          SandHill.io aggregates theses, insights, and market analyses from <span style="color:red">200+</span> startup investors &amp; operators</h2>
-        </div>
-        <div class="col-md-5 col-xl-4">
-        </div>
-      </div>
-    </div>
-  </section>
--->
+
+
   <script>
 if (window.convertflow == undefined) {
 var script = document.createElement('script'); 
@@ -137,6 +124,21 @@ document.body.appendChild(script);
           <% end %>
           <% l_count += 1 %>
           <% end %>
+
+<!-- 
+          <div class="card bg-gradient sticky-top">
+              <img src="assets/img/education-7.jpg" alt="Image" class="bg-image opacity-10">
+              <div class="card-body p-3">
+                <div class="d-flex align-items-center mb-2">
+                  <div>
+                    <span class="h6 text-white">Check out our weekly digest.</span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-block btn-danger">The SandHill.io Newsletter</a>
+              </div>
+            </div>
+--> 
+
 
           <div class="center" style="padding-top:30px;">
             <a class="typeform-share button inter btn-primary btn" href="https://form.typeform.com/to/UUhstC7y" data-mode="drawer_right" style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;text-align:center;margin:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Suggest a Post</a> 

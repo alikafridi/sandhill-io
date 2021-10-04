@@ -24,7 +24,7 @@
   --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
-  --danger: #dc3545;
+  --danger: #D10000;
   --light: #f8f9fa;
   --dark: #152a49;
   --breakpoint-xs: 0;
@@ -1754,12 +1754,12 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545; }
+  background-color: #d10000;
+  border-color: #d10000; }
   .btn-danger:hover {
     color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130; }
+    background-color: #9e0000;
+    border-color: #9e0000; }
   .btn-danger:focus, .btn-danger.focus {
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); }
   .btn-danger.disabled, .btn-danger:disabled {

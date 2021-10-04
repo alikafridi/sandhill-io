@@ -11,7 +11,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= favicon_link_tag asset_path('rocket.png') %>
+  <%= favicon_link_tag asset_path('sh-fav.png') %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
   <% if Rails.env.production? %>
@@ -42,7 +42,7 @@
 <body>
 
 <!-- Header -->
-<%= render "layouts/header" %>
+<%#= render "layouts/header" %>
 
 <!-- Flash Messages -->
 <% flash.each do |name, message| %>

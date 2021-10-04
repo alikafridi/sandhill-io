@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :leads
   resources :feeds do 
     collection { post :import }
   end
