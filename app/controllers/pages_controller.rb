@@ -50,4 +50,7 @@ class PagesController < ApplicationController
 
   def talent
   end
+
+  def loader
+  end
 end

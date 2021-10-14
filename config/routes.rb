@@ -48,4 +48,6 @@ Rails.application.routes.draw do
   get 'privacy_policy' => 'pages#privacy_policy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get 'loaderio-5d6ea8f06b52a5188451d2d277efab90' => 'pages#loader'
+
 end
