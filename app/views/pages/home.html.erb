@@ -1,13 +1,13 @@
 <section class="row no-gutters p-0" style="background-color:#15141A;">
-  <div class="cont2 col-md-5 col-xl-5 height-60 height-md-60 height-xl-50 order-md-2 bg-white" style="max-height: 400px;">
+  <div class="cont2 col-md-5 col-xl-5 height-60 height-md-60 height-xl-50 order-md-2 bg-white" style="max-height: 650px;">
     <%#= image_tag "cards.png", class: "flex-grow-1", style: "height:100%" %>    
     
-     <%= video_tag "anim1.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, style: "height:100%;", class: "center" %>
+     <%= video_tag "anim1.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, style: "height:100%;", class: "center" %> <!-- autoplay: :autoplay, loop: :loop, --> 
    
   </div>
-  
-  <div class="col-md-7 col-xl-7 order-md-1 order-first height-60 height-md-60 height-xl-50">
-    <div class="row w-100 no-gutters justify-content-center py-4">
+
+  <div class="col-md-7 col-xl-7 order-md-1 order-first height-60 height-md-60 height-xl-50" style="max-height:650px;">
+    <div class="row w-100 no-gutters justify-content-center py-4" >
       <div class="col-md-10 col-lg-9 col-xl-8 p-3 animate__animated animate__fadeInLeft">
         <h3 class="display-5 text-white">Follow the latest <span style="color:#FF3333;">theses</span> &amp; <span style="color:#FF3333;">analyses</span> from 600+ VCs and analysts</h3>
 
@@ -36,20 +36,13 @@
 
 <% end %> 
 
-      <p class="text-white">Subscribe to get the weekly digest every Sunday</p>
+      <p class="text-white">Subscribe to get the <%= link_to "weekly digest", "https://newsletter.sandhill.io", style: "color:white;" %> every Sunday</p>
       </div>
     </div>
   </div>
+
 </section>
 
-  <script>
-if (window.convertflow == undefined) {
-var script = document.createElement('script'); 
-script.async = true;
-script.src = "https://js.convertflow.co/production/websites/21725.js"; 
-document.body.appendChild(script); 
-};
-</script>
 <div class="cf-cta-snippet cta77459" website-id="21725" cta-id="77459"></div>
 
   <section class="bg-white">
@@ -138,3 +131,12 @@ document.body.appendChild(script);
 </section>
 
 <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+
+  <script>
+if (window.convertflow == undefined) {
+var script = document.createElement('script'); 
+script.async = true;
+script.src = "https://js.convertflow.co/production/websites/21725.js"; 
+document.body.appendChild(script); 
+};
+</script>

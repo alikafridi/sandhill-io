@@ -1,0 +1,267 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);
+@import url(https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+@import url(bootstrap);
+@import url(theme);
+@import url(font-awesome);
+@import url(jquery-ui);
+@import url(pages);
+@import url(news);
+/* line 1, app/assets/stylesheets/application.scss */
+.cont2 {
+  overflow: hidden;
+  display: block;
+}
+
+@font-face {
+  font-family: Circular-Std-Bold;
+  src: url(/fonts/Circular-Std-Bold.otf);
+}
+
+@font-face {
+  font-family: Circular-Std-Book;
+  src: url(/fonts/Circular-Std-Book.otf);
+}
+
+@font-face {
+  font-family: Gotham-Black;
+  src: url(/fonts/Gotham-Black.otf);
+}
+
+@font-face {
+  font-family: Gotham-Bold;
+  src: url(/fonts/Gotham-Bold.otf);
+}
+
+@font-face {
+  font-family: Avenir-Next;
+  src: url(/fonts/Avenir-Next.ttc);
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(/fonts/Avenir.ttf);
+}
+
+@font-face {
+  font-family: Inter;
+  src: '/fonts/Inter-Regular.ttf';
+}
+
+@font-face {
+  font-family: Inter-ExtraBold;
+  src: '/fonts/Inter-ExtraBold.ttf';
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.inter {
+  font-family: Inter,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.inter-bold {
+  font-family: Inter-ExtraBold,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.avenir {
+  font-family: Avenir,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.avenir-next {
+  font-family: Avenir-Next,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.almarai {
+  font-family: Almarai,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.gotham-bold {
+  font-family: Gotham-Bold,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.gotham-black {
+  font-family: Gotham-Black,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.montserrat {
+  font-family: Montserrat,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.tool2 {
+  font-size: .6em;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.under {
+  border-bottom: 1px dotted #000;
+  text-decoration: none;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.color-hover:hover {
+  background-color: #f5f6fa;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.ui-autocomplete {
+  position: absolute;
+  z-index: 1000;
+  cursor: default;
+  padding: 0;
+  margin-top: 2px;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.ui-autocomplete > li {
+  padding: 3px 20px;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.ui-autocomplete > li.ui-state-focus {
+  background-color: #ddd;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.hover-up:hover {
+  transform: translate(2px, -2px);
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.hover {
+  transform: translate(2px, -2px);
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.lato {
+  font-family: Lato,sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.open-sans {
+  font-family: 'Open Sans',sans-serif;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.center {
+  text-align: center;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.btn-clear {
+  border-color: #000;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination a {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #09f;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination a:hover {
+  z-index: 2;
+  color: #006bb3;
+  text-decoration: none;
+  background-color: #dee2e6;
+  border-color: #dee2e6;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination a:focus {
+  z-index: 2;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 153, 255, 0.25);
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination a:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination:first-child a {
+  margin-left: 0;
+  border-top-left-radius: .375rem;
+  border-bottom-left-radius: .375rem;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination:last-child a {
+  border-top-right-radius: .375rem;
+  border-bottom-right-radius: .375rem;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination .active a {
+  z-index: 1;
+  color: #fff;
+  background-color: #09f;
+  border-color: #09f;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination em.current {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #fff;
+  background-color: #09f;
+  border: 1px solid #e9ecef;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.pagination span.disabled {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #fff;
+  background-color: #09f;
+  border: 1px solid #e9ecef;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.un {
+  display: inline-block;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.un::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  display: block;
+  background: #000;
+  transition: .3s;
+}
+
+/* line 1, app/assets/stylesheets/application.scss */
+.un:hover::after {
+  width: 100%;
+}

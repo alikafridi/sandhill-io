@@ -16,7 +16,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require chartkick
-//= require particles.min
 //= require Chart.bundle
 //= require three
 //= require turbolinks
