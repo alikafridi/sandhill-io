@@ -38,11 +38,12 @@
 	<% end %>
 
 </head>
-
 <body>
 
 <!-- Header -->
-<%#= render "layouts/header" %>
+<% if !current_page?('/') %> 
+  <%= render "layouts/header" %>
+<% end %>
 
 <!-- Flash Messages -->
 <% flash.each do |name, message| %>
